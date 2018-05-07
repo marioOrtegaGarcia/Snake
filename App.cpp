@@ -229,6 +229,7 @@ void App::draw() {
         glColor3f(1.0, 1.0, 1.0);
         writeText2(text2.data(), 365, 160, 15);
     }else if (game->gameMode == 1){     // Snake game
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         background->draw();
         score->draw();
         reset->draw();
@@ -304,6 +305,9 @@ void App::mouseDown(float x, float y){
     if (reset->contains(x, y)){
         reset->resetClicked = true;
         game->gameOver = true;
+        leonidas->alive = false;
+        leonidas->~Snake();
+        leonidas = new Snake();
         game->gameMode = 0;
     }
     
