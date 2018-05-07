@@ -7,6 +7,7 @@
 #include "Snake.h"
 #include "Button.h"
 #include "HighScores.h"
+#include "gameInfo.h"
 
 class App: public GlutApp {
     // Maintain app state here
@@ -36,6 +37,7 @@ public:
     resetButton* reset;
     pauseButton* pause;
     HighScores* highScores;
+    gameInfo *game = new gameInfo;
     
 };
 
