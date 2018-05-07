@@ -18,6 +18,11 @@ public:
     resetButton (const char* filename, float x, float y, float w, float h);
     bool checkResetClicked();
     bool contains(float mx, float my);
+    
+    void changeReset(){
+        if (resetClicked) resetClicked = false;
+        else resetClicked = true;
+    }
 };
 
 class pauseButton : public TexRect {
@@ -26,6 +31,11 @@ public:
     pauseButton (const char* filename, float x, float y, float w, float h);
     bool checkPauseClicked();
     bool contains(float mx, float my);
+    
+    void changePause(){
+        if (pauseClicked) pauseClicked = false;
+        else pauseClicked = true;
+    }
 };
 
 #endif /* Button_hpp */
