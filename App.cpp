@@ -13,7 +13,7 @@ void app_timer(int value){
     //Draws animation for Gameover calls itself at a rate of 100ms
     if (singleton->game_over) {
         //singleton->redraw();
-        //glutTimerFunc(100, app_timer, value);
+        glutTimerFunc(100, app_timer, value);
     } else {
         //Calls itself while game isnt over at a rate of 16 ms
         if (true){
@@ -228,6 +228,7 @@ void App::draw() {
         text2 = "High Scores";
         glColor3f(1.0, 1.0, 1.0);
         writeText2(text2.data(), 365, 160, 15);
+        
     }else if (game->gameMode == 1){     // Snake game
         background->draw();
         score->draw();
@@ -289,11 +290,11 @@ void App::mouseDown(float x, float y){
     my = y;
     
     if (game->gameMode == 0){                                           // Title Screen
-        if (home[0]->contains(x, y)) game->gameMode = 1;
-        else if (home[1]->contains(x, y)) game->gameMode = 2;
-    }else if (game->gameMode == 1 && !game->gameOver){                  // Snake Game
+        if (home[0]->contains(x, y)) game->gameMode = 1;                // Snake Game
+        else if (home[1]->contains(x, y)) game->gameMode = 2;           // High Scores
+    }else if (game->gameMode == 1 && !game->gameOver){
         game->checkIfOver();
-    }else if (game->gameMode == 2 && !game->gameOver){                  // High Scores
+    }else if (game->gameMode == 2 && !game->gameOver){
         game->checkIfOver();
     }
     
@@ -302,13 +303,14 @@ void App::mouseDown(float x, float y){
     }
     
     if (reset->contains(x, y)){
+        reset->resetClicked = true;
+        game->gameOver = true;
         game->gameMode = 0;
     }
     
     // Redraw the scene
     redraw();
 }
-
 
 void App::mouseDrag(float x, float y){
     // Update app state

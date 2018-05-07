@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032A053A20A1051800B1717A /* HighScores.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032A053820A1051800B1717A /* HighScores.cpp */; };
 		1708B53F2091E224007BA7C1 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1708B53E2091E224007BA7C1 /* libSOIL.a */; };
 		1708B5422091F634007BA7C1 /* AnimatedRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1708B5402091F634007BA7C1 /* AnimatedRect.cpp */; };
 		173FEF0C1AA63AC4006CCB85 /* app_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 173FEF0B1AA63AC4006CCB85 /* app_main.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -36,6 +37,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		032A053820A1051800B1717A /* HighScores.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HighScores.cpp; sourceTree = "<group>"; };
+		032A053920A1051800B1717A /* HighScores.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HighScores.hpp; sourceTree = "<group>"; };
 		1708B53E2091E224007BA7C1 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = SOIL/lib/macOS/libSOIL.a; sourceTree = "<group>"; };
 		1708B5402091F634007BA7C1 /* AnimatedRect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedRect.cpp; sourceTree = "<group>"; };
 		1708B5412091F634007BA7C1 /* AnimatedRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedRect.h; sourceTree = "<group>"; };
@@ -84,9 +87,9 @@
 				1708B5402091F634007BA7C1 /* AnimatedRect.cpp */,
 				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				1799B7E61E5ECD67006D7CBD /* App.cpp */,
+				032A053820A1051800B1717A /* HighScores.cpp */,
 				A882FA9120A018F900A948C0 /* Board.cpp */,
 				A882FA9A20A0E00F00A948C0 /* Mice.cpp */,
-				A882FA9B20A0E00F00A948C0 /* Mice.h */,
 				A882FA8820A0184C00A948C0 /* Coord.cpp */,
 				1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
 				A882FA8B20A0189F00A948C0 /* Snake.cpp */,
@@ -99,9 +102,11 @@
 				1799B7E71E5ECD67006D7CBD /* App.h */,
 				A882FA9220A018F900A948C0 /* Board.h */,
 				A882FA8920A0184C00A948C0 /* Coord.h */,
+				A882FA9B20A0E00F00A948C0 /* Mice.h */,
 				1799B7E41E5E3A83006D7CBD /* GlutApp.h */,
 				A882FA8C20A0189F00A948C0 /* Snake.h */,
 				1749D6471E9D3D5C0038BC46 /* TexRect.h */,
+				032A053920A1051800B1717A /* HighScores.hpp */,
 				17FD33D8208FF4A300C7FC56 /* Frameworks */,
 				173FEF021AA63A07006CCB85 /* Products */,
 			);
@@ -181,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032A053A20A1051800B1717A /* HighScores.cpp in Sources */,
 				A882FA9C20A0E00F00A948C0 /* Mice.cpp in Sources */,
 				1799B7E81E5ECD67006D7CBD /* App.cpp in Sources */,
 				A882FA8A20A0184C00A948C0 /* Coord.cpp in Sources */,

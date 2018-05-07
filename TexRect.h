@@ -46,6 +46,8 @@ public:
 
 class Score {
     int score;
+    int highScores[5];
+//    priority_queue highscores[5];
 public:
     Score() {
         score = 0;
