@@ -271,7 +271,7 @@ void App::mouseDown(float x, float y){
     }
     
     if (pause->contains(x, y)){
-        pause->pauseClicked = true;
+        pause->changePause();
     }
     
     if (reset->contains(x, y)){

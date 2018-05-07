@@ -28,5 +28,5 @@ void gameInfo::endGame(){
 void gameInfo::checkIfOver(){
     // Horizontal wins
     if (gameBoard[0] == 1 && gameBoard[1] == 1 && gameBoard[2] == 1)
-        gameOver = true, cout << "Player 1 wins" << endl;
+        cout << "Player 1 wins" << endl;
     }
