@@ -12,17 +12,11 @@
 //Creates the snake at the Center
 Snake::Snake() {
     girth = 2.0/40;
-    grow = down = left = right = false;
+    down = left = right = false;
     //alive = up = true;
+    grow = 10;
     alive = true;
     up = false;
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,-(girth*2.0)));
     snake.push_front(new Coord(0.0,0.0));
 }
 //Changes Bool Valuse for Directions
@@ -71,15 +65,10 @@ void Snake::move(float step) {
         snake.pop_back();
     else
         grow--;
-    /*
-    list<Coord*>::const_iterator itr;
-    for (itr = snake.begin(); itr != snake.end(); ++itr) {
-     
-    }
-     */
 }
 //Increases snake length once it eats
 void Snake::shouldGrow() {
+    
     grow+=10;
     //if ( (false)) grow += 10;
 }
