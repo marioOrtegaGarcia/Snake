@@ -11,6 +11,7 @@ resetButton::resetButton (const char* filename, float x, float y, float w, float
 bool resetButton::checkResetClicked() {
     return resetClicked;
 }
+
 bool resetButton::contains(float mx, float my) {
     //return TexRect::contains(mx, my);
     return mx >= -1 && mx <= -1 + 0.167 && my <= 1 && my >= 1 - 0.167;
