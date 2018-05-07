@@ -176,6 +176,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     reset = new resetButton("images/reset.png", -1, 1, .167, .167);
     pause = new pauseButton("images/pause.png", .83, 1, .167, .167);
     leonidas = new Snake();
+    highScores = new HighScores();
     
     pause->pauseClicked = false;
     reset->resetClicked = false;
@@ -275,7 +276,11 @@ void App::draw() {
         glColor3f(1.0, 1.0, 1.0);
         writeText2(text2.data(), 360, 460, 15);
         
+        highScores->drawScores();
+        
         reset->draw();
+        
+       
     }
     
     // We have been drawing everything to the back buffer

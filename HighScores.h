@@ -6,16 +6,20 @@
 //  Copyright © 2018 Angelo Kyrilov. All rights reserved.
 //
 
-#ifndef HighScores_hpp
-#define HighScores_hpp
+#ifndef HighScores_h
+#define HighScores_h
 
+#include "App.h"
 #include <stdio.h>
-
-#include "App.cpp"
+#include <string>
 
 using namespace std;
 
-void Score1(const char *place1, int x, int y, int length){
+class HighScores {
+    
+public:
+    
+void S1(const char *place1, int x, int y, int length){
     glMatrixMode(GL_PROJECTION);
     double *matrix = new double[16];
     glGetDoublev(GL_PROJECTION_MATRIX, matrix);
@@ -35,7 +39,7 @@ void Score1(const char *place1, int x, int y, int length){
     glMatrixMode(GL_MODELVIEW);
 }
 
-void Score2(const char *place2, int x, int y, int length){
+void S2(const char *place2, int x, int y, int length){
     glMatrixMode(GL_PROJECTION);
     double *matrix = new double[16];
     glGetDoublev(GL_PROJECTION_MATRIX, matrix);
@@ -55,7 +59,7 @@ void Score2(const char *place2, int x, int y, int length){
     glMatrixMode(GL_MODELVIEW);
 }
 
-void Score3(const char *place3, int x, int y, int length){
+void S3(const char *place3, int x, int y, int length){
     glMatrixMode(GL_PROJECTION);
     double *matrix = new double[16];
     glGetDoublev(GL_PROJECTION_MATRIX, matrix);
@@ -75,7 +79,7 @@ void Score3(const char *place3, int x, int y, int length){
     glMatrixMode(GL_MODELVIEW);
 }
 
-void Score4(const char *place4, int x, int y, int length){
+void S4(const char *place4, int x, int y, int length){
     glMatrixMode(GL_PROJECTION);
     double *matrix = new double[16];
     glGetDoublev(GL_PROJECTION_MATRIX, matrix);
@@ -95,7 +99,7 @@ void Score4(const char *place4, int x, int y, int length){
     glMatrixMode(GL_MODELVIEW);
 }
 
-void Score5(const char *place5, int x, int y, int length){
+void S5(const char *place5, int x, int y, int length){
     glMatrixMode(GL_PROJECTION);
     double *matrix = new double[16];
     glGetDoublev(GL_PROJECTION_MATRIX, matrix);
@@ -115,29 +119,29 @@ void Score5(const char *place5, int x, int y, int length){
     glMatrixMode(GL_MODELVIEW);
 }
 
-string score1;
-score1 = "High Scores";
-glColor3f(1.0, 1.0, 1.0);
-Score1(score1.data(), 365, 160, 15);
+void drawScores(){
+    
+    string place1 = "First Place:";
+    glColor3f(1.0, 1.0, 1.0);
+    S1(place1.data(), 255, 410, 15);
+    
+    string place2 = "Second Place:";
+    glColor3f(1.0, 1.0, 1.0);
+    S2(place2.data(), 255, 350, 15);
+    
+    string place3 = "Third Place:";
+    glColor3f(1.0, 1.0, 1.0);
+    S3(place3.data(), 255, 290, 15);
+    
+    string place4 = "Fourth Place:";
+    glColor3f(1.0, 1.0, 1.0);
+    S4(place4.data(), 255, 230, 15);
+    
+    string place5 = "Fifth Place:";
+    glColor3f(1.0, 1.0, 1.0);
+    S5(place5.data(), 255, 170, 15);
+    
+}
+};
 
-string score2;
-score2 = "High Scores";
-glColor3f(1.0, 1.0, 1.0);
-Score2(score2.data(), 365, 160, 15);
-
-string score3;
-score3 = "High Scores";
-glColor3f(1.0, 1.0, 1.0);
-Score3(score3.data(), 365, 160, 15);
-
-string score4;
-score4 = "High Scores";
-glColor3f(1.0, 1.0, 1.0);
-Score4(score4.data(), 365, 160, 15);
-
-string score5;
-score5 = "High Scores";
-glColor3f(1.0, 1.0, 1.0);
-Score5(score5.data(), 365, 160, 15);
-
-#endif /* HighScores_hpp */
+#endif /* HighScores_h */
