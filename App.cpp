@@ -155,7 +155,6 @@ void writeText2(const char *text2, int x, int y, int length){
     glMatrixMode(GL_MODELVIEW);
 }
 
-
 vector<Rect*> home;
 gameInfo *game = new gameInfo;
 
@@ -291,11 +290,11 @@ void App::mouseDown(float x, float y){
     my = y;
     
     if (game->gameMode == 0){                                           // Title Screen
-        if (home[0]->contains(x, y)) game->gameMode = 1;
-        else if (home[1]->contains(x, y)) game->gameMode = 2;
-    }else if (game->gameMode == 1 && !game->gameOver){                  // Snake Game
+        if (home[0]->contains(x, y)) game->gameMode = 1;                // Snake Game
+        else if (home[1]->contains(x, y)) game->gameMode = 2;           // High Scores
+    }else if (game->gameMode == 1 && !game->gameOver){
         game->checkIfOver();
-    }else if (game->gameMode == 2 && !game->gameOver){                  // High Scores
+    }else if (game->gameMode == 2 && !game->gameOver){
         game->checkIfOver();
     }
     
@@ -304,13 +303,14 @@ void App::mouseDown(float x, float y){
     }
     
     if (reset->contains(x, y)){
+        reset->resetClicked = true;
+        game->gameOver = true;
         game->gameMode = 0;
     }
     
     // Redraw the scene
     redraw();
 }
-
 
 void App::mouseDrag(float x, float y){
     // Update app state
