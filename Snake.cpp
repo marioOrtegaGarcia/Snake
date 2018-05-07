@@ -78,7 +78,8 @@ void Snake::collisionCheck() {
     float y = snake.front()->y;
     if (x > 1.0 - girth || x < -1+girth || y > 0.83-girth || y < -1+girth) {
         alive = false;
-    }/*
+    }
+    /*
     for (std::list<Coord*>::iterator i = snake.begin(); i != snake.end(); ++i) {
         if (i == snake.begin()) {
             for (int it = 0; it < 7; it++)
