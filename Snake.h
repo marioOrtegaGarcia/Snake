@@ -13,6 +13,8 @@
 #include <list>
 #include "Coord.h"
 #include "Board.h"
+#include "Mice.h"
+
 using namespace std;
 
 class Snake {
@@ -27,7 +29,7 @@ public:
     Snake();
     void changeDirection(int key);
     void move(float step = 0.015);
-    void shouldGrow();
+    void shouldGrow(Board* board);
     bool atMouse();
     void collisionCheck();
     void draw();

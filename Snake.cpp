@@ -8,6 +8,7 @@
 
 #include "Snake.h"
 #include <iostream>
+#include <math.h>
 
 //Creates the snake at the Center
 Snake::Snake() {
@@ -67,9 +68,14 @@ void Snake::move(float step) {
         grow--;
 }
 //Increases snake length once it eats
-void Snake::shouldGrow() {
+void Snake::shouldGrow(Board* board) {
+    Coord* head = snake.front();
     
-    grow+=10;
+    int x = (int)floor(head->x);
+    int y = (int)floor(head->y);
+    std::cout << "(" << x << "," << y << ")" << std::endl;
+    //board->containsMice(<#int x#>, <#int y#>)
+    //grow+=10;
     //if ( (false)) grow += 10;
 }
 //Return true if head contains bumped someting
@@ -79,7 +85,7 @@ void Snake::collisionCheck() {
     if (x > 1.0 - girth || x < -1+girth || y > 0.83-girth || y < -1+girth) {
         alive = false;
     }
-    /*
+    int a = 0;
     for (std::list<Coord*>::iterator i = snake.begin(); i != snake.end(); ++i) {
         a++;
         if (a > 7) {
