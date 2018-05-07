@@ -13,7 +13,7 @@ void app_timer(int value){
     //Draws animation for Gameover calls itself at a rate of 100ms
     if (singleton->game_over) {
         //singleton->redraw();
-        //glutTimerFunc(100, app_timer, value);
+        glutTimerFunc(100, app_timer, value);
     } else {
         //Calls itself while game isnt over at a rate of 16 ms
         if (true){
@@ -229,6 +229,7 @@ void App::draw() {
         text2 = "High Scores";
         glColor3f(1.0, 1.0, 1.0);
         writeText2(text2.data(), 365, 160, 15);
+        
     }else if (game->gameMode == 1){     // Snake game
         background->draw();
         score->draw();
