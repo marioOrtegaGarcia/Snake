@@ -1,6 +1,5 @@
 #include "TexRect.h"
 
-
 TexRect::TexRect (const char* filename, float x=0, float y=0, float w=0.5, float h=0.5){
     
     glClearColor (0.0, 0.0, 0.0, 0.0);
@@ -8,11 +7,11 @@ TexRect::TexRect (const char* filename, float x=0, float y=0, float w=0.5, float
     glEnable(GL_DEPTH_TEST);
     
     texture_id = SOIL_load_OGL_texture (
-     filename,
-     SOIL_LOAD_AUTO,
-     SOIL_CREATE_NEW_ID,
-     SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-     );
+                                        filename,
+                                        SOIL_LOAD_AUTO,
+                                        SOIL_CREATE_NEW_ID,
+                                        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+                                        );
     
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -32,7 +31,6 @@ TexRect::TexRect (const char* filename, float x=0, float y=0, float w=0.5, float
     xinc = 0.01;
     yinc = 0.01;
 }
-
 void TexRect::moveUp(float rate){
     y += rate;
 }
@@ -51,7 +49,6 @@ void TexRect::moveRight(float rate){
         x = 0.99 - w;
     }
 }
-
 void TexRect::jump(){
     if(rising){
         y+=yinc;
@@ -80,16 +77,12 @@ void TexRect::jump(){
     }
     if (x < -0.99) {
         movingLeft = false;
-       
     }
     if (x+w > 0.99) {
         movingLeft = true;
         
     }
 }
-
-
-
 void TexRect::draw(){
     glBindTexture( GL_TEXTURE_2D, texture_id );
     glEnable(GL_TEXTURE_2D);
@@ -112,12 +105,6 @@ void TexRect::draw(){
     
     glDisable(GL_TEXTURE_2D);
 }
-
-
 bool TexRect::contains(float mx, float my){
     return mx >= x && mx <= x+w && my <= y && my >= y - h;
 }
-
-
-
-
