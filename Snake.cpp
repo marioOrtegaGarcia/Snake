@@ -81,14 +81,14 @@ void Snake::collisionCheck() {
     }
     /*
     for (std::list<Coord*>::iterator i = snake.begin(); i != snake.end(); ++i) {
-        if (i == snake.begin()) {
-            for (int it = 0; it < 7; it++)
-                i++;
+        a++;
+        if (a > 7) {
+            if ((x > (*i)->x && x < (*i)->x + girth) && (y < (*i)->y && y > (*i)->y - girth)) {
+                alive = false;
+            }
         }
-        else if ((x > (*i)->x && x < (*i)->x + girth) && (y < (*i)->y && y > (*i)->y - girth)) {
-            alive = false;
-        }
-    }*/
+    }
+    a = 0;
 }
 void Snake::draw() {
     list<Coord*>::iterator itr;
