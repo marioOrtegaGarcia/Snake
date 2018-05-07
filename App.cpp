@@ -317,8 +317,6 @@ void App::mouseDrag(float x, float y){
 }
 
 void App::idle(){
-    //leonidas->move();
-    //redraw();
 }
 
 void App::keyPress(unsigned char key) {

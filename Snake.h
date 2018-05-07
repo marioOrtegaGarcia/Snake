@@ -23,6 +23,7 @@ private:
     float girth;
 public:
     bool alive;
+    
     Snake();
     void changeDirection(int key);
     void move(float step = 0.005);
