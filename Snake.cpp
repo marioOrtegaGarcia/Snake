@@ -79,6 +79,16 @@ void Snake::collisionCheck() {
     if (x > 1.0 - girth || x < -1+girth || y > 0.83-girth || y < -1+girth) {
         alive = false;
     }
+    int a = 0;
+    for (std::list<Coord*>::iterator i = snake.begin(); i != snake.end(); ++i) {
+        a++;
+        if (a > 10) {
+            if ((x > (*i)->x && x < (*i)->x + girth) && (y < (*i)->y && y > (*i)->y - girth)) {
+                alive = false;
+            }
+        }
+    }
+    a = 0;
 }
 void Snake::draw() {
     list<Coord*>::iterator itr;

@@ -23,9 +23,10 @@ private:
     float girth;
 public:
     bool alive;
+    
     Snake();
     void changeDirection(int key);
-    void move(float step = 0.005);
+    void move(float step = 0.0125);
     void shouldGrow();
     bool atMouse();
     void collisionCheck();
