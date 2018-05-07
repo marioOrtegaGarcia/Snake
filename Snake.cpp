@@ -62,14 +62,15 @@ void Snake::changeDirection(int key) {
 }
 void Snake::move(float step) {
     Coord* head = new Coord(snake.front()->x,snake.front()->y);
-    if (true) step = girth;
     if (up) head->moveUp(step);
     if (down) head->moveDown(step);
     if (left) head->moveLeft(step);
     if (right) head->moveRight(step);
     snake.push_front(head);
-    shouldGrow();
-    if (!grow) snake.pop_back();
+    if (grow == 0)
+        snake.pop_back();
+    else
+        grow--;
     /*
     list<Coord*>::const_iterator itr;
     for (itr = snake.begin(); itr != snake.end(); ++itr) {
@@ -79,8 +80,8 @@ void Snake::move(float step) {
 }
 //Increases snake length once it eats
 void Snake::shouldGrow() {
-    
-    if ( (false)) grow = true;
+    grow+=10;
+    //if ( (false)) grow += 10;
 }
 //Return true if head contains bumped someting
 void Snake::collisionCheck() {
