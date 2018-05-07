@@ -8,11 +8,11 @@ TexRect::TexRect (const char* filename, float x=0, float y=0, float w=0.5, float
     glEnable(GL_DEPTH_TEST);
     
     texture_id = SOIL_load_OGL_texture (
-     filename,
-     SOIL_LOAD_AUTO,
-     SOIL_CREATE_NEW_ID,
-     SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-     );
+                                        filename,
+                                        SOIL_LOAD_AUTO,
+                                        SOIL_CREATE_NEW_ID,
+                                        SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+                                        );
     
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -80,7 +80,6 @@ void TexRect::jump(){
     }
     if (x < -0.99) {
         movingLeft = false;
-       
     }
     if (x+w > 0.99) {
         movingLeft = true;

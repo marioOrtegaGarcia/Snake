@@ -19,6 +19,7 @@
 		A882FA8A20A0184C00A948C0 /* Coord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA8820A0184C00A948C0 /* Coord.cpp */; };
 		A882FA8D20A0189F00A948C0 /* Snake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA8B20A0189F00A948C0 /* Snake.cpp */; };
 		A882FA9320A018F900A948C0 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9120A018F900A948C0 /* Board.cpp */; };
+		A882FA9C20A0E00F00A948C0 /* Mice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9A20A0E00F00A948C0 /* Mice.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,8 @@
 		A882FA8C20A0189F00A948C0 /* Snake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Snake.h; sourceTree = "<group>"; };
 		A882FA9120A018F900A948C0 /* Board.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Board.cpp; sourceTree = "<group>"; };
 		A882FA9220A018F900A948C0 /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		A882FA9A20A0E00F00A948C0 /* Mice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mice.cpp; sourceTree = "<group>"; };
+		A882FA9B20A0E00F00A948C0 /* Mice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mice.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				1799B7E61E5ECD67006D7CBD /* App.cpp */,
 				A882FA9120A018F900A948C0 /* Board.cpp */,
+				A882FA9A20A0E00F00A948C0 /* Mice.cpp */,
+				A882FA9B20A0E00F00A948C0 /* Mice.h */,
 				A882FA8820A0184C00A948C0 /* Coord.cpp */,
 				1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
 				A882FA8B20A0189F00A948C0 /* Snake.cpp */,
@@ -171,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A882FA9C20A0E00F00A948C0 /* Mice.cpp in Sources */,
 				1799B7E81E5ECD67006D7CBD /* App.cpp in Sources */,
 				A882FA8A20A0184C00A948C0 /* Coord.cpp in Sources */,
 				A882FA9320A018F900A948C0 /* Board.cpp in Sources */,

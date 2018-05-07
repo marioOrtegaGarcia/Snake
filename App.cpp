@@ -5,7 +5,7 @@ using namespace std;
 static App* singleton;
 
 void app_timer(int value){
-    if (singleton->leonidas->alive) {
+    if (singleton->leonidas->alive || !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->move();
         singleton->leonidas->collisionCheck();
     }
@@ -57,61 +57,61 @@ struct gameInfo{
 struct Rect{
     float x, y, width, height;
     bool pressed = false;
-
+    
     Rect(float a, float b, float c, float d){
         x = a;
         y = b;
         width = c;
         height = d;
     }
-
+    
     float getX(){
         return x;
     }
-
+    
     float getY(){
         return y;
     }
-
+    
     float getWidth(){
         return width;
     }
-
+    
     float getHeight(){
         return height;
     }
-
+    
     void setX(float input){
         x = input;
     }
-
+    
     void setY(float input){
         y = input;
     }
-
+    
     void setWidth(float input){
         width = input;
     }
-
+    
     void setHeight(float input){
         height = input;
     }
-
+    
     void click(){
         if (!pressed) pressed = true;
         else pressed = false;
     }
-
+    
     void unClick() {
         pressed = false;
     }
-
+    
     bool contains(float inputX, float inputY){
         return ((inputX > x && inputX < (x + width)) && (inputY < y && inputY > (y - height)));
     }
-
+    
     ~Rect(){
-
+        
     }
 };
 
@@ -165,11 +165,11 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     singleton = this;
     mx = 0.0;
     my = 0.0;
-
+    
     // Draw the home buttons
     home.push_back(new Rect(-0.3, 0.55, 0.6, 0.25));
     home.push_back(new Rect(-0.3, -0.35, 0.6, 0.25));
-
+    
     game_over = false;
     score = new Score();
     board = new Board();
@@ -191,23 +191,23 @@ void App::specialKeyPress(int key){
 }
 
 void App::specialKeyUp(int key){
-
+    
 }
 
 void App::draw() {
     // Clear the screen
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+    
     // Set background color to black
     glClearColor(0.0, 0.0, 0.0, 1.0);
-
+    
     // Set up the transformations stack
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-
+    
     float oneThird = 0.333;
     float twoThirds = 0.667;
-
+    
     if (game->gameMode == 0){           // Home Screen
         // Draw the two home buttons
         glColor3f(1.0, 0.0, 0.0);
@@ -224,7 +224,7 @@ void App::draw() {
         text = "Play";
         glColor3f(1.0, 1.0, 1.0);
         writeText(text.data(), 380, 430, 15);
-
+        
         //Write "High Scores"
         string text2;
         text2 = "High Scores";
@@ -244,32 +244,32 @@ void App::draw() {
         glColor3f(1.0, 1.0, 1.0);
         glLineWidth(2.5);
         glBegin(GL_LINES);
-
+        
         glVertex2f(-0.5, 0.5);
         glVertex2f(0.5, 0.5);
-
+        
         glVertex2f(-0.5, 0.3);
         glVertex2f(0.5, 0.3);
-
+        
         glVertex2f(-0.5, 0.1);
         glVertex2f(0.5, 0.1);
-
+        
         glVertex2f(-0.5, -0.1);
         glVertex2f(0.5, -0.1);
-
+        
         glVertex2f(-0.5, -0.3);
         glVertex2f(0.5, -0.3);
-
+        
         glVertex2f(-0.5, -0.5);
         glVertex2f(0.5, -0.5);
-
+        
         glVertex2f(-0.5, 0.5);
         glVertex2f(-0.5, -0.5);
-
+        
         glVertex2f(0.5, 0.5);
         glVertex2f(0.5, -0.5);
         glEnd();
-
+        
         // Write "High Scores"
         string text2;
         text2 = "High Scores";
@@ -278,7 +278,7 @@ void App::draw() {
         
         reset->draw();
     }
-
+    
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
@@ -326,7 +326,7 @@ void App::idle(){
 void App::keyPress(unsigned char key) {
     if (key == 27){
         // Exit the app when Esc key is pressed
-
+        
         delete background;
         delete this;
         

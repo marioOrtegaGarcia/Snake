@@ -39,10 +39,10 @@ void GlutApp::windowToScene ( float& x, float &y )
     // Converting window coordinates [0..width] x [0..height] to [-1..1] x [-1..1]
     x = (2.0f*(x/float(width))) - 1.0f;
     y = 1.0f - (2.0f*(y/float(height)));
-	// Take care of issue in Windows where y coordinate is a little off
-	#if defined WIN32
-	y -= 0.03;
-	#endif
+    // Take care of issue in Windows where y coordinate is a little off
+#if defined WIN32
+    y -= 0.03;
+#endif
 }
 
 void GlutApp::draw(){
@@ -68,10 +68,10 @@ void GlutApp::resize ( int w, int h ) {
     // Update the width and height
     width = w;
     height = h;
-
+    
     // Tell OpenGL to use the whole window
     glViewport( 0, 0, w, h );
-
+    
 }
 
 void GlutApp::keyPress(unsigned char key){

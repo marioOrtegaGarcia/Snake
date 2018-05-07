@@ -11,12 +11,14 @@
 
 //Creates the snake at the Center
 Snake::Snake() {
-    snake.push_front(new Coord(0.0,0.0-(girth*4.0)));
-    snake.push_front(new Coord(0.0,0.0-(girth*2.0)));
+    girth = 2.0/40;
+    //snake.push_front(new Coord(0.0,0.0-(girth*4.0)));
+    snake.push_front(new Coord(0.0,(0.0-(girth*2.0))));
     snake.push_front(new Coord(0.0,0.0));
     grow = down = left = right = false;
-    alive = up = true;
-    girth = 2.0/40;
+    alive = true;
+    up = false;
+    //alive = up = true;
 }
 //Changes Bool Valuse for Directions
 void Snake::changeDirection(int key) {
@@ -53,9 +55,10 @@ void Snake::changeDirection(int key) {
             break;
     }
 }
+
 void Snake::move(float step) {
     Coord* head = new Coord(snake.front()->x,snake.front()->y);
-    std::cout << "(" << snake.front()->x << "," << snake.front()->y << ")" << std::endl;
+    //std::cout << "(" << snake.front()->x << "," << snake.front()->y << ")" << std::endl;
     if (up) head->moveUp(step);
     if (down) head->moveDown(step);
     if (left) head->moveLeft(step);
@@ -79,35 +82,36 @@ void Snake::collisionCheck() {
         alive = false;
     }
 }
+
 void Snake::draw() {
-     list<Coord*>::iterator itr;
-     float width = girth, height = girth;
+    list<Coord*>::iterator itr;
+    float width = girth, height = girth;
     bool alternateColor = true;
-     for (itr = snake.begin(); itr != snake.end(); ++itr) {
-         if (itr == snake.begin()) {
-             glColor3d(0.0, 1.0, 0.0);
-             glBegin(GL_POLYGON);
-             glVertex2f((*itr)->x - width/2, (*itr)->y + height/2);//TL
-             glVertex2f((*itr)->x + width/2, (*itr)->y + height/2);//TR
-             glVertex2f((*itr)->x + width/2, (*itr)->y - height/2);//BR
-             glVertex2f((*itr)->x - width/2, (*itr)->y - height/2);//BL
-             glEnd();
-         } else {
-             if (alternateColor) {
-                 glColor3d(1.0, 1.0, 1.0);
-                 alternateColor = false;
-             } else {
-                 glColor3d(0.0, 0.0, 0.0);
-                 alternateColor = true;
-             }
-             glBegin(GL_POLYGON);
-             glVertex2f((*itr)->x - width/2, (*itr)->y + height/2);//TL
-             glVertex2f((*itr)->x + width/2, (*itr)->y + height/2);//TR
-             glVertex2f((*itr)->x + width/2, (*itr)->y - height/2);//BR
-             glVertex2f((*itr)->x - width/2, (*itr)->y - height/2);//BL
-             glEnd();
-         }
-     }
+    for (itr = snake.begin(); itr != snake.end(); ++itr) {
+        if (itr == snake.begin()) {
+            glColor3d(0.0, 1.0, 0.0);
+            glBegin(GL_POLYGON);
+            glVertex2f((*itr)->x - width/2, (*itr)->y + height/2);//TL
+            glVertex2f((*itr)->x + width/2, (*itr)->y + height/2);//TR
+            glVertex2f((*itr)->x + width/2, (*itr)->y - height/2);//BR
+            glVertex2f((*itr)->x - width/2, (*itr)->y - height/2);//BL
+            glEnd();
+        } else {
+            if (alternateColor) {
+                glColor3d(1.0, 1.0, 1.0);
+                alternateColor = false;
+            } else {
+                glColor3d(0.0, 0.0, 0.0);
+                alternateColor = true;
+            }
+            glBegin(GL_POLYGON);
+            glVertex2f((*itr)->x - width/2, (*itr)->y + height/2);//TL
+            glVertex2f((*itr)->x + width/2, (*itr)->y + height/2);//TR
+            glVertex2f((*itr)->x + width/2, (*itr)->y - height/2);//BR
+            glVertex2f((*itr)->x - width/2, (*itr)->y - height/2);//BL
+            glEnd();
+        }
+    }
 }
 
 Snake::~Snake() {
