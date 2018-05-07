@@ -280,6 +280,7 @@ void App::mouseDown(float x, float y){
         leonidas->alive = false;
         leonidas->~Snake();
         leonidas = new Snake();
+        if(pause->checkPauseClicked()) pause->changePause();
         game->gameMode = 0;
     }
     
