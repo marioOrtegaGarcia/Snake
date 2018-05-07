@@ -25,7 +25,7 @@ public:
     bool alive;
     Snake();
     void changeDirection(int key);
-    void move(float step = 0.005);
+    void move(float step = 0.015);
     void shouldGrow();
     bool atMouse();
     void collisionCheck();
