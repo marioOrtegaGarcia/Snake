@@ -11,13 +11,13 @@
 
 #include <stdio.h>
 struct Coord {
-    int x;
-    int y;
-    Coord (int x = 0, int y = 0);
-    void moveUp(int step = 0.1);
-    void moveDown(int step = 0.1);
-    void moveLeft(int step = 0.1 );
-    void moveRight(int step = 0.1);
+    float x;
+    float y;
+    Coord (float x = 0.0, float y = 0.0);
+    void moveUp(float step = 0.05);
+    void moveDown(float step = 0.05);
+    void moveLeft(float step = 0.05);
+    void moveRight(float step = 0.05);
     virtual ~Coord();
 };
 #endif /* Coord_h */

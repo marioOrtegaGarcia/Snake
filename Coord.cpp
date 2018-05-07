@@ -7,20 +7,20 @@
 //
 
 #include "Coord.h"
-Coord::Coord (int x, int y) {
+Coord::Coord (float x, float y) {
     this->x = x;
     this->y = y;
 }
-void Coord::moveUp(int step) {
+void Coord::moveUp(float step) {
     y+=step;
 }
-void Coord::moveDown(int step) {
+void Coord::moveDown(float step) {
     y-=step;
 }
-void Coord::moveRight(int step) {
+void Coord::moveRight(float step) {
     x+=step;
 }
-void Coord::moveLeft(int step) {
+void Coord::moveLeft(float step) {
     x-=step;
 }
 Coord::~Coord (){

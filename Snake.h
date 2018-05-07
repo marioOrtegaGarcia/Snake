@@ -20,15 +20,15 @@ private:
     list<Coord*> snake;
     bool up, down, left, right;
     bool grow;
-    
+    float girth;
 public:
     bool alive;
     Snake();
     void changeDirection(int key);
-    void move();
+    void move(float step = 0.005);
     void shouldGrow();
     bool atMouse();
-    bool collisionCheck();
+    void collisionCheck();
     void draw();
     ~Snake();
 };

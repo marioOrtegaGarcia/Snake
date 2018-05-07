@@ -5,44 +5,53 @@ using namespace std;
 static App* singleton;
 
 void app_timer(int value){
+    if (singleton->leonidas->alive) {
+        singleton->leonidas->move();
+        singleton->leonidas->collisionCheck();
+    }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
-    if (singleton->game_over){
+    if (singleton->game_over) {
         singleton->redraw();
         glutTimerFunc(100, app_timer, value);
-    }
-    else{
+    } else {
         //Calls itself while game isnt over at a rate of 16 ms
         if (true){
-            std::cout << "Move";
-            singleton->leonidas->move();
             singleton->redraw();
-            glutTimerFunc(200, app_timer, value);
+            glutTimerFunc(100, app_timer, value);
         }
     }
     
     
 }
 
-
-
 struct gameInfo{
     int gameMode = 0;       // 0 for home screen, 1 to play game, 2 for high scores
+    int turn = 0;
+    int gameBoard[9];
     bool gameOver;
-
+    float x, y, w, h;
+    
     gameInfo(){
         gameOver = false;   // Game is not over when started
-
+        
+        for (int i = 0; i < 9; i ++){
+            gameBoard[i] = 0;
+        }
     }
-
+    
     bool gameState(){
         return gameOver;
     }
-
+    
     void endGame(){
         gameOver = true;
     }
-
+    
+    void checkIfOver(){
+        // Horizontal wins
+        if (gameBoard[0] == 1 && gameBoard[1] == 1 && gameBoard[2] == 1) gameOver = true, cout << "Player 1 wins" << endl;
+    }
 };
 
 struct Rect{
@@ -125,7 +134,7 @@ void writeText(const char *text, int x, int y, int length){
     glLoadMatrixd(matrix);
     glMatrixMode(GL_MODELVIEW);
 }
-
+//Can We Just call this functions giving it two different arrays?
 void writeText2(const char *text2, int x, int y, int length){
     glMatrixMode(GL_PROJECTION);
     double *matrix = new double[16];
@@ -171,6 +180,8 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     pause = new pauseButton("images/pause.png", .83, 1, .167, .167);
     leonidas = new Snake();
     
+    pause->pauseClicked = false;
+    reset->resetClicked = false;
 }
 
 void App::specialKeyPress(int key){
@@ -264,6 +275,8 @@ void App::draw() {
         text2 = "High Scores";
         glColor3f(1.0, 1.0, 1.0);
         writeText2(text2.data(), 360, 460, 15);
+        
+        reset->draw();
     }
 
     // We have been drawing everything to the back buffer
@@ -276,14 +289,28 @@ void App::mouseDown(float x, float y){
     // Update app state
     mx = x;
     my = y;
-
+    
     if (game->gameMode == 0){                                           // Title Screen
         if (home[0]->contains(x, y)) game->gameMode = 1;
         else if (home[1]->contains(x, y)) game->gameMode = 2;
+    }else if (game->gameMode == 1 && !game->gameOver){                  // Snake Game
+        game->checkIfOver();
+    }else if (game->gameMode == 2 && !game->gameOver){                  // High Scores
+        game->checkIfOver();
     }
+    
+    if (pause->contains(x, y)){
+        pause->pauseClicked = true;
+    }
+    
+    if (reset->contains(x, y)){
+        game->gameMode = 0;
+    }
+    
     // Redraw the scene
     redraw();
 }
+
 
 void App::mouseDrag(float x, float y){
     // Update app state
