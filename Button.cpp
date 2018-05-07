@@ -7,7 +7,9 @@
 //
 
 #include "Button.h"
-resetButton::resetButton (const char* filename, float x, float y, float w, float h) : TexRect (filename, x, y, w, h){}
+resetButton::resetButton (const char* filename, float x, float y, float w, float h) : TexRect (filename, x, y, w, h){
+    resetClicked = false;
+}
 bool resetButton::checkResetClicked() {
     return resetClicked;
 }
@@ -17,7 +19,9 @@ bool resetButton::contains(float mx, float my) {
     return mx >= -1 && mx <= -1 + 0.167 && my <= 1 && my >= 1 - 0.167;
 }
 
-pauseButton::pauseButton (const char* filename, float x, float y, float w, float h) : TexRect (filename, x, y, w, h){}
+pauseButton::pauseButton (const char* filename, float x, float y, float w, float h) : TexRect (filename, x, y, w, h){
+    pauseClicked = false;
+}
 
 bool pauseButton::checkPauseClicked() {
     return pauseClicked;
