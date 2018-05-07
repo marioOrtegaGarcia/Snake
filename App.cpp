@@ -279,6 +279,7 @@ void App::mouseDown(float x, float y){
         leonidas->alive = false;
         leonidas->~Snake();
         leonidas = new Snake();
+        score->reset();
         game->gameMode = 0;
     }
     
@@ -310,5 +311,6 @@ void App::keyPress(unsigned char key) {
     
     if (key == ' '){
         singleton->leonidas->shouldGrow();
+        score->incScore(5);
     }
 }
