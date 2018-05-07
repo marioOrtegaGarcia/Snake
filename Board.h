@@ -15,9 +15,9 @@
 #include "TexRect.h"
 #include "Mice.h"
 class Board {
-    Mice* gameBoard[40][40];
     int boardSize = 40;
 public:
+    Mice* gameBoard[40][40];
     Board();
     bool containsMice(int x, int y);
     void draw();

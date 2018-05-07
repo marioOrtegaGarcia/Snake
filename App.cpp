@@ -8,6 +8,7 @@ void app_timer(int value){
     if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->move();
         singleton->leonidas->collisionCheck();
+        singleton->leonidas->shouldGrow(singleton->board);
     }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
@@ -284,6 +285,7 @@ void App::mouseDown(float x, float y){
         leonidas->alive = false;
         leonidas->~Snake();
         leonidas = new Snake();
+        if(pause->checkPauseClicked()) pause->changePause();
         game->gameMode = 0;
     }
     
@@ -314,6 +316,6 @@ void App::keyPress(unsigned char key) {
     }
     
     if (key == ' '){
-        singleton->leonidas->shouldGrow();
+        
     }
 }
