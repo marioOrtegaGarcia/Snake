@@ -19,7 +19,7 @@ class Snake {
 private:
     list<Coord*> snake;
     bool up, down, left, right;
-    bool grow;
+    int grow;
     float girth;
 public:
     bool alive;

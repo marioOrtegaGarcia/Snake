@@ -12,17 +12,11 @@
 //Creates the snake at the Center
 Snake::Snake() {
     girth = 2.0/40;
-    grow = down = left = right = false;
+    down = left = right = false;
     //alive = up = true;
+    grow = 10;
     alive = true;
     up = false;
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,(girth*4.0)));
-    snake.push_front(new Coord(0.0,-(girth*2.0)));
     snake.push_front(new Coord(0.0,0.0));
 }
 //Changes Bool Valuse for Directions
@@ -62,25 +56,21 @@ void Snake::changeDirection(int key) {
 }
 void Snake::move(float step) {
     Coord* head = new Coord(snake.front()->x,snake.front()->y);
-    if (true) step = girth;
     if (up) head->moveUp(step);
     if (down) head->moveDown(step);
     if (left) head->moveLeft(step);
     if (right) head->moveRight(step);
     snake.push_front(head);
-    shouldGrow();
-    if (!grow) snake.pop_back();
-    /*
-    list<Coord*>::const_iterator itr;
-    for (itr = snake.begin(); itr != snake.end(); ++itr) {
-     
-    }
-     */
+    if (grow == 0)
+        snake.pop_back();
+    else
+        grow--;
 }
 //Increases snake length once it eats
 void Snake::shouldGrow() {
     
-    if ( (false)) grow = true;
+    grow+=10;
+    //if ( (false)) grow += 10;
 }
 //Return true if head contains bumped someting
 void Snake::collisionCheck() {

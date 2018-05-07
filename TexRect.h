@@ -43,41 +43,11 @@ public:
     float yinc;
 };
 
-class resetButton : public TexRect {
-    
-public:
-    resetButton (const char* filename, float x, float y, float w, float h) : TexRect (filename, x, y, w, h){}
-    
-    bool resetClicked;
-    
-    bool checkResetClicked() {
-        return resetClicked;
-    }
-    
-    bool contains(float mx, float my) {
-        return mx >= -1 && mx <= -1 + 0.167 && my <= 1 && my >= 1 - 0.167;
-    }
-    
-};
-
-class pauseButton : public TexRect {
-    
-public:
-    pauseButton (const char* filename, float x, float y, float w, float h) : TexRect (filename, x, y, w, h){}
-    
-    bool pauseClicked;
-    
-    bool checkPauseClicked() {
-        return pauseClicked;
-    }
-    
-    bool contains(float mx, float my){
-        return mx >= 0.83 && mx <= 0.83 + 0.167 && my <= 1 && my >= 1 - 0.167;
-    }
-};
 
 class Score {
     int score;
+    int highScores[5];
+//    priority_queue highscores[5];
 public:
     Score() {
         score = 0;
@@ -95,5 +65,4 @@ public:
         
     }
 };
-
 #endif

@@ -21,6 +21,7 @@
 		A882FA8D20A0189F00A948C0 /* Snake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA8B20A0189F00A948C0 /* Snake.cpp */; };
 		A882FA9320A018F900A948C0 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9120A018F900A948C0 /* Board.cpp */; };
 		A882FA9C20A0E00F00A948C0 /* Mice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9A20A0E00F00A948C0 /* Mice.cpp */; };
+		A882FA9F20A1051600A948C0 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9D20A1051600A948C0 /* Button.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,8 @@
 		A882FA9220A018F900A948C0 /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		A882FA9A20A0E00F00A948C0 /* Mice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mice.cpp; sourceTree = "<group>"; };
 		A882FA9B20A0E00F00A948C0 /* Mice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mice.h; sourceTree = "<group>"; };
+		A882FA9D20A1051600A948C0 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
+		A882FA9E20A1051600A948C0 /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
 				A882FA8B20A0189F00A948C0 /* Snake.cpp */,
 				1749D6461E9D3D5C0038BC46 /* TexRect.cpp */,
+				A882FA9D20A1051600A948C0 /* Button.cpp */,
+				A882FA9E20A1051600A948C0 /* Button.h */,
 				173FEF171AA63B22006CCB85 /* GLUT.framework */,
 				173FEF151AA63B1B006CCB85 /* OpenGL.framework */,
 				1708B5412091F634007BA7C1 /* AnimatedRect.h */,
@@ -187,6 +192,7 @@
 				A882FA8A20A0184C00A948C0 /* Coord.cpp in Sources */,
 				A882FA9320A018F900A948C0 /* Board.cpp in Sources */,
 				1708B5422091F634007BA7C1 /* AnimatedRect.cpp in Sources */,
+				A882FA9F20A1051600A948C0 /* Button.cpp in Sources */,
 				173FEF0C1AA63AC4006CCB85 /* app_main.cpp in Sources */,
 				1799B7E51E5E3A83006D7CBD /* GlutApp.cpp in Sources */,
 				1749D6481E9D3D5C0038BC46 /* TexRect.cpp in Sources */,

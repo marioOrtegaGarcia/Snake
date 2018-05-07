@@ -5,6 +5,7 @@
 #include "TexRect.h"
 #include "AnimatedRect.h"
 #include "Snake.h"
+#include "Button.h"
 
 class App: public GlutApp {
     // Maintain app state here
