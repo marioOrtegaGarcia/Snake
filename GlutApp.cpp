@@ -89,7 +89,6 @@ void GlutApp::redraw() {
     glutPostRedisplay();
 }
 
-
 void GlutApp::displayCB(){
     // When GLUT needs to redraw itself, call our draw method
     app->draw();

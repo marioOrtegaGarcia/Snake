@@ -22,8 +22,9 @@ bool Board::containsMice(int x, int y) {
     return false;
 }
 void Board::placeMice() {
-    int x = (rand() % (boardSize-1)) + 1;
-    int  y = (rand() % (boardSize-1)) + 1;
+    //int x = (rand() % (boardSize-1)) + 1;
+    //int  y = (rand() % (boardSize-1)) + 1;
+    int x = 20, y = 10;
     gameBoard[x][y] = new Mice((float)x,(float)y);
     //gameBoard[x][y] = new Mice();
 }

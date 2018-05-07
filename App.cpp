@@ -5,15 +5,15 @@ using namespace std;
 static App* singleton;
 
 void app_timer(int value){
-    if (singleton->leonidas->alive || !singleton->pause->checkPauseClicked()) {
+    if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->move();
         singleton->leonidas->collisionCheck();
     }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
     if (singleton->game_over) {
-        singleton->redraw();
-        glutTimerFunc(100, app_timer, value);
+        //singleton->redraw();
+        //glutTimerFunc(100, app_timer, value);
     } else {
         //Calls itself while game isnt over at a rate of 16 ms
         if (true){
@@ -21,8 +21,6 @@ void app_timer(int value){
             glutTimerFunc(100, app_timer, value);
         }
     }
-    
-    
 }
 
 struct gameInfo{
@@ -182,6 +180,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     
     pause->pauseClicked = false;
     reset->resetClicked = false;
+    
 }
 
 void App::specialKeyPress(int key){
@@ -326,10 +325,13 @@ void App::idle(){
 void App::keyPress(unsigned char key) {
     if (key == 27){
         // Exit the app when Esc key is pressed
-        
+        delete score;
+        delete board;
+        delete leonidas;
         delete background;
+        delete reset;
+        delete pause;
         delete this;
-        
         exit(0);
     }
     
