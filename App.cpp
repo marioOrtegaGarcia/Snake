@@ -13,7 +13,7 @@ void app_timer(int value){
     //Draws animation for Gameover calls itself at a rate of 100ms
     if (singleton->game_over) {
         //singleton->redraw();
-        //glutTimerFunc(100, app_timer, value);
+        glutTimerFunc(100, app_timer, value);
     } else {
         //Calls itself while game isnt over at a rate of 16 ms
         if (true){
@@ -23,34 +23,7 @@ void app_timer(int value){
     }
 }
 
-struct gameInfo{
-    int gameMode = 0;       // 0 for home screen, 1 to play game, 2 for high scores
-    int turn = 0;
-    int gameBoard[9];
-    bool gameOver;
-    float x, y, w, h;
-    
-    gameInfo(){
-        gameOver = false;   // Game is not over when started
-        
-        for (int i = 0; i < 9; i ++){
-            gameBoard[i] = 0;
-        }
-    }
-    
-    bool gameState(){
-        return gameOver;
-    }
-    
-    void endGame(){
-        gameOver = true;
-    }
-    
-    void checkIfOver(){
-        // Horizontal wins
-        if (gameBoard[0] == 1 && gameBoard[1] == 1 && gameBoard[2] == 1) gameOver = true, cout << "Player 1 wins" << endl;
-    }
-};
+
 
 struct Rect{
     float x, y, width, height;
@@ -154,7 +127,7 @@ void writeText2(const char *text2, int x, int y, int length){
 }
 
 vector<Rect*> home;
-gameInfo *game = new gameInfo;
+
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
@@ -176,9 +149,6 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     reset = new resetButton("images/reset.png", -1, 1, .167, .167);
     pause = new pauseButton("images/pause.png", .83, 1, .167, .167);
     leonidas = new Snake();
-    
-    pause->pauseClicked = false;
-    reset->resetClicked = false;
     
 }
 
@@ -228,6 +198,7 @@ void App::draw() {
         text2 = "High Scores";
         glColor3f(1.0, 1.0, 1.0);
         writeText2(text2.data(), 365, 160, 15);
+        
     }else if (game->gameMode == 1){     // Snake game
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         background->draw();
@@ -322,8 +293,6 @@ void App::mouseDrag(float x, float y){
 }
 
 void App::idle(){
-    //leonidas->move();
-    //redraw();
 }
 
 void App::keyPress(unsigned char key) {

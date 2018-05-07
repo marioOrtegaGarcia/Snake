@@ -6,6 +6,7 @@
 #include "AnimatedRect.h"
 #include "Snake.h"
 #include "Button.h"
+#include "gameInfo.h"
 
 class App: public GlutApp {
     // Maintain app state here
@@ -34,7 +35,7 @@ public:
     TexRect* background;
     resetButton* reset;
     pauseButton* pause;
-    
+    gameInfo *game = new gameInfo;
 };
 
 #endif

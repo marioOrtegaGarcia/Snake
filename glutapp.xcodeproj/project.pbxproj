@@ -21,6 +21,7 @@
 		A882FA9320A018F900A948C0 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9120A018F900A948C0 /* Board.cpp */; };
 		A882FA9C20A0E00F00A948C0 /* Mice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9A20A0E00F00A948C0 /* Mice.cpp */; };
 		A882FA9F20A1051600A948C0 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9D20A1051600A948C0 /* Button.cpp */; };
+		A882FAA220A10A8400A948C0 /* gameInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FAA020A10A8400A948C0 /* gameInfo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,8 @@
 		A882FA9B20A0E00F00A948C0 /* Mice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mice.h; sourceTree = "<group>"; };
 		A882FA9D20A1051600A948C0 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
 		A882FA9E20A1051600A948C0 /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		A882FAA020A10A8400A948C0 /* gameInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gameInfo.cpp; sourceTree = "<group>"; };
+		A882FAA120A10A8400A948C0 /* gameInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gameInfo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 		173FEEF81AA63A07006CCB85 = {
 			isa = PBXGroup;
 			children = (
+				A882FAA020A10A8400A948C0 /* gameInfo.cpp */,
+				A882FAA120A10A8400A948C0 /* gameInfo.h */,
 				1708B5402091F634007BA7C1 /* AnimatedRect.cpp */,
 				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				1799B7E61E5ECD67006D7CBD /* App.cpp */,
@@ -190,6 +195,7 @@
 				173FEF0C1AA63AC4006CCB85 /* app_main.cpp in Sources */,
 				1799B7E51E5E3A83006D7CBD /* GlutApp.cpp in Sources */,
 				1749D6481E9D3D5C0038BC46 /* TexRect.cpp in Sources */,
+				A882FAA220A10A8400A948C0 /* gameInfo.cpp in Sources */,
 				A882FA8D20A0189F00A948C0 /* Snake.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
