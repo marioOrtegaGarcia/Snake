@@ -8,6 +8,10 @@ void app_timer(int value){
     if (singleton->game_over && !singleton->explode->done()) {
         singleton->explode->advance();
     }
+    
+    if (singleton->explode->done()) {
+        singleton->highScores->insertQueue(singleton->score->getScore());
+    }
 
     //Game Not Paused
     if (!singleton->pause->checkPauseClicked()) {
@@ -35,7 +39,8 @@ void app_timer(int value){
             }
         //Leonidas Dead
         }else {
-            if (singleton->leonidas->length() == singleton->score->getScore()*2) {
+            if (singleton->leonidas->length() >= (singleton->score->getScore()*2)-1) {
+                cout << "Relocated Explosion" << endl;
                 Coord* head = singleton->leonidas->getHead();
                 singleton->explode->relocate(head->x, head->y);
             }
@@ -100,9 +105,6 @@ void writeText2(const char *text2, int x, int y, int length){
     glLoadMatrixd(matrix);
     glMatrixMode(GL_MODELVIEW);
 }
-
-
-
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
