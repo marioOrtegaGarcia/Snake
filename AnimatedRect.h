@@ -43,6 +43,7 @@ public:
     void animate();
     
     void stop();
+    void relocate(float mx, float my);
 };
 
 #endif
