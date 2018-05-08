@@ -4,7 +4,6 @@
 using namespace std;
 static App* singleton;
 
-
 void app_timer(int value){
     if (singleton->game->isGameOver() && !singleton->game->explode->done()) {
         singleton->game->explode->advance();
