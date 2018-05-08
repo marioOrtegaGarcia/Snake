@@ -33,3 +33,20 @@ Mice::~Mice(){
     delete mouse;
     delete loc;
 }
+
+taco::taco(float x, float y) {
+    loc = new Coord(x,y);
+    alive = true;
+    tacomouse = new TexRect("images/tacomouse.png", x, y, w, h);
+}
+
+void taco::draw() {
+    if (alive) {
+        tacomouse->draw();
+    }
+}
+
+taco::~taco() {
+    delete tacomouse;
+    delete loc;
+}

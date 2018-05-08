@@ -121,6 +121,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     
     game = new gameInfo();
     rats.push_back(new Mice(0,0.28));
+    rats.push_back(new taco(0.33,-0.28));
 }
 
 void App::specialKeyPress(int key){
@@ -179,6 +180,7 @@ void App::draw() {
         pause->draw();
         //board->draw();
         rats[0]->draw();
+        rats[1]->draw();
         leonidas->draw();
         gameOver->draw();
         app_timer(1);

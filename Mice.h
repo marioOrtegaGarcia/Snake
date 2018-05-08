@@ -25,4 +25,15 @@ public:
     bool contains(float x, float y);
     ~Mice();
 };
+
+class taco : public Mice {
+    TexRect* tacomouse;
+    Coord* loc;
+    float w = 2.0/40;
+    float h = 1.83/40;
+public:
+    taco(float x = 0, float y = 0);
+    void draw();
+    ~taco();
+};
 #endif /* Mice_hpp */
