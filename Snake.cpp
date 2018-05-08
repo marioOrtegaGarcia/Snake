@@ -102,7 +102,16 @@ void Snake::collisionCheck() {
     a = 0;
 }
 void Snake::vanish() {
-    if (!alive && snake.size()>=1) snake.pop_back();
+    if (!alive && snake.size()>=1) {
+        if (snake.size() > 5) {
+            snake.pop_back();
+            snake.pop_back();
+            snake.pop_back();
+            snake.pop_back();
+        }else{
+            snake.pop_back();
+        }
+    }
 }
 void Snake::draw() {
     list<Coord*>::reverse_iterator itr;
@@ -129,6 +138,9 @@ void Snake::draw() {
 }
 Coord* Snake::getHead() {
     return snake.front();
+}
+int Snake::length() {
+    return (int)snake.size();
 }
 Snake::~Snake() {
     list<Coord*>::const_iterator itr;
