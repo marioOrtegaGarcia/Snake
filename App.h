@@ -2,14 +2,18 @@
 #define App_hpp
 
 #include "GlutApp.h"
+/*
+#include <vector>
 #include "TexRect.h"
 #include "AnimatedRect.h"
-#include "Snake.h"
-#include "Button.h"
-#include "HighScores.h"
-#include "gameInfo.h"
 #include "Rect.h"
-#include <vector>
+#include "Button.h"
+#include "Snake.h"
+#include "Mice.h"
+#include "HighScores.h"
+*/
+
+#include "gameInfo.h"
 
 class App: public GlutApp {
     // Maintain app state here
@@ -24,15 +28,15 @@ public:
     void keyPress(unsigned char key);
     void mouseDown(float x, float y);
     void mouseDrag(float x, float y);
-    
     void specialKeyPress(int key);
-    
     void specialKeyUp(int key);
-    
     void idle();
 
-    float count = 0, mult = -1;
-    bool game_over;
+
+    
+    gameInfo* game;
+    
+    /*
     Score* score;
     AnimatedRect* explode;
     Snake* leonidas;
@@ -44,6 +48,7 @@ public:
     gameInfo *game;
     vector<Mice*> rats;
     vector<Rect*> home;
+    */
 };
 
 #endif
