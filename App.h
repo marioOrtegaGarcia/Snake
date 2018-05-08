@@ -43,6 +43,7 @@ public:
     HighScores* highScores;
     gameInfo *game;
     vector<Mice*> rats;
+    vector<taco*> tacos;
     vector<Rect*> home;
 };
 

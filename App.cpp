@@ -12,6 +12,10 @@ void app_timer(int value){
     //Game Not Paused
     if (!singleton->pause->checkPauseClicked()) {
         
+        //Move taco
+        singleton->tacos[0]->changeDirection((int)(singleton->count) % 4);
+        singleton->tacos[0]->move(.0005);
+        
         //Leonidas Alive
         if (singleton->leonidas->alive) {
             singleton->count++;
@@ -129,7 +133,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     
     game = new gameInfo();
     rats.push_back(new Mice(0,0.28));
-    rats.push_back(new taco(0.33,-0.28));
+    tacos.push_back(new taco(0.33,-0.28));
 }
 
 void App::specialKeyPress(int key){
@@ -188,7 +192,7 @@ void App::draw() {
         pause->draw();
         
         rats[0]->draw();
-        rats[1]->draw();
+        tacos[0]->draw();
         leonidas->draw();
         explode->draw();
         app_timer(1);
@@ -264,8 +268,9 @@ void App::mouseDown(float x, float y){
         leonidas->~Snake();
         leonidas = new Snake();
         rats.clear();
+        tacos.clear();
         rats.push_back(new Mice(-0.2,0.6));
-        rats.push_back(new taco(-0.2,-0.6));
+        tacos.push_back(new taco(-0.2,-0.6));
         score->reset();
         game->gameMode = 0;
     }

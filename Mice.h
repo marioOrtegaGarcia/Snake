@@ -21,7 +21,7 @@ public:
     bool alive;
     Mice(float x= 0, float y=0);
     void kill();
-    virtual void draw();
+    void draw();
     bool contains(float x, float y);
     ~Mice();
 };
@@ -31,9 +31,14 @@ class taco : public Mice {
     Coord* loc;
     float w = 2.0/40;
     float h = 1.83/40;
+    bool up, down, left, right;
 public:
     taco(float x = 0, float y = 0);
+    void kill();
     void draw();
+    void changeDirection(int key);
+    void move(float step = 0.0005);
+    bool contains(float x, float y);
     ~taco();
 };
 #endif /* Mice_hpp */
