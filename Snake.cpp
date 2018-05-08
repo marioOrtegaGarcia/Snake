@@ -101,6 +101,9 @@ void Snake::collisionCheck() {
     }
     a = 0;
 }
+void Snake::vanish() {
+    if (!alive && snake.size()>=1) snake.pop_back();
+}
 void Snake::draw() {
     list<Coord*>::reverse_iterator itr;
     bool alternateColor = true;
@@ -121,8 +124,8 @@ void Snake::draw() {
         glVertex2f((*itr)->x + girth/2, (*itr)->y - girth/2);//BR
         glVertex2f((*itr)->x - girth/2, (*itr)->y - girth/2);//BL
         glEnd();
-        
     }
+    
 }
 Snake::~Snake() {
     list<Coord*>::const_iterator itr;

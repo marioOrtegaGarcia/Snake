@@ -5,7 +5,7 @@
 //  Created by Mario Ortega on 5/6/18.
 //  Copyright © 2018 Angelo Kyrilov. All rights reserved.
 //
-
+/*
 #include "Board.h"
 #include <iostream>
 
@@ -42,3 +42,4 @@ Board::~Board(){
         for (int j = 0; j < boardSize; j++)
             delete gameBoard[i][j];
 }
+*/
