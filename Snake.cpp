@@ -106,12 +106,13 @@ void Snake::draw() {
     bool alternateColor = true;
     
     for (itr = snake.rbegin(); itr != snake.rend(); ++itr) {
-        if (itr == snake.rend()) glColor3d(1.0, 0.0, 0.0);
-        else if (alternateColor) {
-            glColor3d(1.0, 1.0, 1.0);
+        if (itr == snake.rend()) {
+            glColor3d(1.0, 0.0, 0.0);
+        } else if (alternateColor) {
+            glColor3d(0.0, 0.0, 0.0);
             alternateColor = false;
         } else {
-            glColor3d(0.0, 0.0, 0.0);
+            glColor3d(1.0, 1.0, 1.0);
             alternateColor = true;
         }
         glBegin(GL_POLYGON);
