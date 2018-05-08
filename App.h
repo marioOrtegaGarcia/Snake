@@ -37,6 +37,7 @@ public:
     TexRect* background;
     resetButton* reset;
     pauseButton* pause;
+    HighScores* highScores;
     gameInfo *game;
     vector<Mice*> rats;
 };
