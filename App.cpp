@@ -74,15 +74,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     tacos.push_back(new taco(0.33,-0.28));
 }
 
-void App::specialKeyPress(int key){
-    if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked() && key >= 100 && key <= 103) {
-        leonidas->changeDirection(key);
-    }
-}
 
-void App::specialKeyUp(int key){
-    
-}
 void App::specialKeyPress(int key){game->passKeys(key);}
 void App::specialKeyUp(int key){}
 void App::draw() {
@@ -121,7 +113,7 @@ void App::draw() {
         string text2;
         text2 = "High Scores";
         glColor3f(1.0, 1.0, 1.0);
-        writeText2(text2.data(), 365, 160, 15);
+        writeText(text2.data(), 365, 160, 15);
         
     }else if (game->gameMode == 1){     // Snake game
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
