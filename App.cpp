@@ -250,7 +250,11 @@ void App::draw() {
         glColor3f(1.0, 1.0, 1.0);
         writeText2(text2.data(), 360, 460, 15);
         
+        highScores->drawScores();
+        
         reset->draw();
+        
+       
     }
     
     // We have been drawing everything to the back buffer

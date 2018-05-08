@@ -6,6 +6,7 @@
 #include "AnimatedRect.h"
 #include "Snake.h"
 #include "Button.h"
+#include "HighScores.h"
 #include "gameInfo.h"
 #include <vector>
 
