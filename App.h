@@ -33,7 +33,7 @@ public:
     float count = 0, mult = -1;
     bool game_over;
     Score* score;
-    Board* board;
+    //Board* board;
     Snake* leonidas;
     TexRect* menu;
     TexRect* background;

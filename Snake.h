@@ -13,7 +13,7 @@
 #include <vector>
 #include <list>
 #include "Coord.h"
-#include "Board.h"
+//#include "Board.h"
 #include "Mice.h"
 
 using namespace std;
@@ -26,13 +26,13 @@ private:
     float girth;
 public:
     bool alive;
-    
     Snake();
     void changeDirection(int key);
     void move(float step = 0.015);
     bool shouldGrow(vector<Mice*> &rats, float x, float y);
     bool atMouse();
     void collisionCheck();
+    void vanish();
     void draw();
     ~Snake();
 };

@@ -21,6 +21,7 @@ void app_timer(int value){
     if ((int)singleton->count % 3 == 0) y = y * singleton->mult;
     
     std::cout << value<< endl;
+    
     if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->move();
         singleton->leonidas->collisionCheck();
@@ -28,10 +29,14 @@ void app_timer(int value){
             singleton->score->incScore(5);
         }
     }
+    if (!singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
+        singleton->leonidas->vanish();
+    }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
     if (singleton->game_over) {
-        //singleton->redraw();
+        //singleton->leonidas->vanish();
+        singleton->redraw();
         glutTimerFunc(100, app_timer, value);
     } else {
         //Calls itself while game isnt over at a rate of 16 ms
@@ -163,7 +168,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     
     game_over = false;
     score = new Score();
-    board = new Board();
+    //board = new Board();
     
     menu = new TexRect("images/menu.png", -1, 1, 2, 2);
     //board->placeMice();
@@ -232,7 +237,7 @@ void App::draw() {
         score->draw();
         reset->draw();
         pause->draw();
-        board->draw();
+        //board->draw();
         rats[0]->draw();
         leonidas->draw();
         gameOver->draw();
@@ -331,7 +336,7 @@ void App::keyPress(unsigned char key) {
     if (key == 27){
         // Exit the app when Esc key is pressed
         delete score;
-        delete board;
+        //delete board;
         delete leonidas;
         delete background;
         delete reset;
