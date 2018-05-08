@@ -1,5 +1,5 @@
 //
-//  gameInfo.cpp
+//  gameState.cpp
 //  glutapp
 //
 //  Created by Mario Ortega on 5/7/18.

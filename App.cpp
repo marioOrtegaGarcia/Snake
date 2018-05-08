@@ -53,18 +53,23 @@ void app_timer(int value){
     }
 }
 
-
-
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
     singleton = this;
+    
     mx = 0.0;
     my = 0.0;
     
     game = new gameState();
 }
-void App::specialKeyPress(int key){game->passKeys(key);}
-void App::specialKeyUp(int key){}
+
+void App::specialKeyPress(int key){
+    game->passKeys(key);
+}
+
+void App::specialKeyUp(int key){
+}
+
 void App::draw() {
     // Clear the screen
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -76,12 +81,9 @@ void App::draw() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     
-    float oneThird = 0.333;
-    float twoThirds = 0.667;
     game->draw();
-    if (game->getGameMode() == 1) {
-        app_timer(1);
-    }
+    if (game->getGameMode() == 1) app_timer(1);
+    
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
@@ -92,16 +94,19 @@ void App::mouseDown(float x, float y){
     // Update app state
     mx = x;
     my = y;
-
+    
     game->passMouseCoords(mx, my);
+    
     // Redraw the scene
     redraw();
 }
+
 void App::mouseDrag(float x, float y){
     // Update app state
     mx = x;
     my = y;
 }
+
 void App::idle(){}
 
 void App::keyPress(unsigned char key) {

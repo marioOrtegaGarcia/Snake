@@ -20,6 +20,7 @@ Snake::Snake() {
     grow = 10;
     snake.push_front(new Coord(0.0,0.0));
 }
+
 //Changes Bool Valuse for Directions
 void Snake::changeDirection(int key) {
     switch (key) {
@@ -51,6 +52,7 @@ void Snake::changeDirection(int key) {
             break;
     }
 }
+
 void Snake::move(float step) {
     Coord* head = new Coord(snake.front()->x,snake.front()->y);
     if (up) head->moveUp(step);
@@ -63,9 +65,9 @@ void Snake::move(float step) {
     else
         grow--;
 }
+
 //Increases snake length once it eats
 bool Snake::shouldGrow(std::vector<Mice*> &rats, float x, float y) {
-    
     for (int i = 0; i < rats.size(); i++) {
         if (rats[i]->contains(snake.front()->x, snake.front()->y)) {
             grow+=10;
@@ -79,6 +81,7 @@ bool Snake::shouldGrow(std::vector<Mice*> &rats, float x, float y) {
     }
     return false;
 }
+
 //Return true if head contains bumped someting
 void Snake::collisionCheck() {
     float x = snake.front()->x;

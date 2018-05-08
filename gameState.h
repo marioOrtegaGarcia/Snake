@@ -1,12 +1,12 @@
 //
-//  gameInfo.h
+//  gameState.h
 //  glutapp
 //
 //  Created by Mario Ortega on 5/7/18.
 //  Copyright © 2018 Angelo Kyrilov. All rights reserved.
 //
 
-#ifndef gameInfo_h
+#ifndef gameState_h
 #define gameInfo_h
 #include <vector>
 #include <iostream>
