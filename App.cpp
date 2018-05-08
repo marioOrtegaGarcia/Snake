@@ -8,7 +8,7 @@ void app_timer(int value){
     if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->move();
         singleton->leonidas->collisionCheck();
-        singleton->leonidas->shouldGrow(singleton->rats);
+        if(singleton->leonidas->shouldGrow(singleton->rats)) singleton->score->incScore(5);
     }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
@@ -145,6 +145,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     score = new Score();
     board = new Board();
     
+    menu = new TexRect("images/menu.png", -1, 1, 2, 2);
     //board->placeMice();
     
     background = new TexRect("images/grass.jpeg", -1, .83, 2, 2);
@@ -183,6 +184,7 @@ void App::draw() {
     
     if (game->gameMode == 0){           // Home Screen
         // Draw the two home buttons
+        menu->draw();
         glColor3f(1.0, 0.0, 0.0);
         for (int i = 0; i < home.size(); i++){
             glBegin(GL_POLYGON);
@@ -285,7 +287,7 @@ void App::mouseDown(float x, float y){
         leonidas->alive = false;
         leonidas->~Snake();
         leonidas = new Snake();
-        if(pause->checkPauseClicked()) pause->changePause();
+        score->reset();
         game->gameMode = 0;
     }
     
@@ -316,6 +318,7 @@ void App::keyPress(unsigned char key) {
     }
     
     if (key == ' '){
-        
+        //singleton->leonidas->shouldGrow();
+        //score->incScore(5);
     }
 }

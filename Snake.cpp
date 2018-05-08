@@ -69,8 +69,12 @@ void Snake::move(float step) {
         grow--;
 }
 //Increases snake length once it eats
-void Snake::shouldGrow(std::vector<Mice*> &rats) {
-    if(rats[0]->contains(snake.front()->x, snake.front()->y))grow+=10;
+bool Snake::shouldGrow(std::vector<Mice*> &rats) {
+    if(rats[0]->contains(snake.front()->x, snake.front()->y)){
+        grow+=10;
+        return true;
+    }
+    return false;
 }
 //Return true if head contains bumped someting
 void Snake::collisionCheck() {
