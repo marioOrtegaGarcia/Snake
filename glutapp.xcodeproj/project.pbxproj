@@ -37,34 +37,35 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-        032A053920A1051800B1717A /* HighScores.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
-        1708B53E2091E224007BA7C1 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = SOIL/lib/macOS/libSOIL.a; sourceTree = "<group>"; };
-        1708B5402091F634007BA7C1 /* AnimatedRect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedRect.cpp; sourceTree = "<group>"; };
-        1708B5412091F634007BA7C1 /* AnimatedRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedRect.h; sourceTree = "<group>"; };
-        173FEF011AA63A07006CCB85 /* glutapp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = glutapp; sourceTree = BUILT_PRODUCTS_DIR; };
-        173FEF0B1AA63AC4006CCB85 /* app_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = app_main.cpp; sourceTree = "<group>"; };
-        173FEF151AA63B1B006CCB85 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-        173FEF171AA63B22006CCB85 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
-        1749D6461E9D3D5C0038BC46 /* TexRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TexRect.cpp; sourceTree = "<group>"; };
-        1749D6471E9D3D5C0038BC46 /* TexRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexRect.h; sourceTree = "<group>"; };
-        1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlutApp.cpp; sourceTree = "<group>"; };
-        1799B7E41E5E3A83006D7CBD /* GlutApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlutApp.h; sourceTree = "<group>"; };
-        1799B7E61E5ECD67006D7CBD /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
-        1799B7E71E5ECD67006D7CBD /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
-        17FD33D9208FF4A300C7FC56 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-        17FD33DB208FF55B00C7FC56 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSOIL.a; sourceTree = "<group>"; };
-        A882FA8820A0184C00A948C0 /* Coord.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Coord.cpp; sourceTree = "<group>"; };
-        A882FA8920A0184C00A948C0 /* Coord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coord.h; sourceTree = "<group>"; };
-        A882FA8B20A0189F00A948C0 /* Snake.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Snake.cpp; sourceTree = "<group>"; };
-        A882FA8C20A0189F00A948C0 /* Snake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Snake.h; sourceTree = "<group>"; };
-        A882FA9120A018F900A948C0 /* Board.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Board.cpp; sourceTree = "<group>"; };
-        A882FA9220A018F900A948C0 /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
-        A882FA9A20A0E00F00A948C0 /* Mice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mice.cpp; sourceTree = "<group>"; };
-        A882FA9B20A0E00F00A948C0 /* Mice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mice.h; sourceTree = "<group>"; };
-        A882FA9D20A1051600A948C0 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
-        A882FA9E20A1051600A948C0 /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
-        A882FAA020A10A8400A948C0 /* gameInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gameInfo.cpp; sourceTree = "<group>"; };
-        A882FAA120A10A8400A948C0 /* gameInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gameInfo.h; sourceTree = "<group>"; };
+		032A053920A1051800B1717A /* HighScores.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
+		032A053B20A1287200B1717A /* Explosion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Explosion.h; sourceTree = "<group>"; };
+		1708B53E2091E224007BA7C1 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = SOIL/lib/macOS/libSOIL.a; sourceTree = "<group>"; };
+		1708B5402091F634007BA7C1 /* AnimatedRect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedRect.cpp; sourceTree = "<group>"; };
+		1708B5412091F634007BA7C1 /* AnimatedRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedRect.h; sourceTree = "<group>"; };
+		173FEF011AA63A07006CCB85 /* glutapp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = glutapp; sourceTree = BUILT_PRODUCTS_DIR; };
+		173FEF0B1AA63AC4006CCB85 /* app_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = app_main.cpp; sourceTree = "<group>"; };
+		173FEF151AA63B1B006CCB85 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		173FEF171AA63B22006CCB85 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		1749D6461E9D3D5C0038BC46 /* TexRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TexRect.cpp; sourceTree = "<group>"; };
+		1749D6471E9D3D5C0038BC46 /* TexRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexRect.h; sourceTree = "<group>"; };
+		1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GlutApp.cpp; sourceTree = "<group>"; };
+		1799B7E41E5E3A83006D7CBD /* GlutApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlutApp.h; sourceTree = "<group>"; };
+		1799B7E61E5ECD67006D7CBD /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
+		1799B7E71E5ECD67006D7CBD /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
+		17FD33D9208FF4A300C7FC56 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		17FD33DB208FF55B00C7FC56 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSOIL.a; sourceTree = "<group>"; };
+		A882FA8820A0184C00A948C0 /* Coord.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Coord.cpp; sourceTree = "<group>"; };
+		A882FA8920A0184C00A948C0 /* Coord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coord.h; sourceTree = "<group>"; };
+		A882FA8B20A0189F00A948C0 /* Snake.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Snake.cpp; sourceTree = "<group>"; };
+		A882FA8C20A0189F00A948C0 /* Snake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Snake.h; sourceTree = "<group>"; };
+		A882FA9120A018F900A948C0 /* Board.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Board.cpp; sourceTree = "<group>"; };
+		A882FA9220A018F900A948C0 /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		A882FA9A20A0E00F00A948C0 /* Mice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mice.cpp; sourceTree = "<group>"; };
+		A882FA9B20A0E00F00A948C0 /* Mice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mice.h; sourceTree = "<group>"; };
+		A882FA9D20A1051600A948C0 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
+		A882FA9E20A1051600A948C0 /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		A882FAA020A10A8400A948C0 /* gameInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gameInfo.cpp; sourceTree = "<group>"; };
+		A882FAA120A10A8400A948C0 /* gameInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gameInfo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,56 +83,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-        173FEEF81AA63A07006CCB85 = {
-            isa = PBXGroup;
-            children = (
-                A882FAA020A10A8400A948C0 /* gameInfo.cpp */,
-                A882FAA120A10A8400A948C0 /* gameInfo.h */,
-                1708B5402091F634007BA7C1 /* AnimatedRect.cpp */,
-                173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
-                1799B7E61E5ECD67006D7CBD /* App.cpp */,
-                A882FA9120A018F900A948C0 /* Board.cpp */,
-                A882FA9A20A0E00F00A948C0 /* Mice.cpp */,
-                A882FA9B20A0E00F00A948C0 /* Mice.h */,
-                A882FA8820A0184C00A948C0 /* Coord.cpp */,
-                1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
-                A882FA8B20A0189F00A948C0 /* Snake.cpp */,
-                1749D6461E9D3D5C0038BC46 /* TexRect.cpp */,
-                A882FA9D20A1051600A948C0 /* Button.cpp */,
-                173FEF171AA63B22006CCB85 /* GLUT.framework */,
-                173FEF151AA63B1B006CCB85 /* OpenGL.framework */,
-                1708B5412091F634007BA7C1 /* AnimatedRect.h */,
-                1799B7E71E5ECD67006D7CBD /* App.h */,
-                A882FA9220A018F900A948C0 /* Board.h */,
-                A882FA8920A0184C00A948C0 /* Coord.h */,
-                1799B7E41E5E3A83006D7CBD /* GlutApp.h */,
-                A882FA8C20A0189F00A948C0 /* Snake.h */,
-                A882FA9E20A1051600A948C0 /* Button.h */,
-                1749D6471E9D3D5C0038BC46 /* TexRect.h */,
-                032A053920A1051800B1717A /* HighScores.h */,
-                17FD33D8208FF4A300C7FC56 /* Frameworks */,
-                173FEF021AA63A07006CCB85 /* Products */,
-            );
-            sourceTree = "<group>";
-        };
-        173FEF021AA63A07006CCB85 /* Products */ = {
-            isa = PBXGroup;
-            children = (
-                173FEF011AA63A07006CCB85 /* glutapp */,
-            );
-            name = Products;
-            sourceTree = "<group>";
-        };
-        17FD33D8208FF4A300C7FC56 /* Frameworks */ = {
-            isa = PBXGroup;
-            children = (
-                17FD33DB208FF55B00C7FC56 /* libSOIL.a */,
-                1708B53E2091E224007BA7C1 /* libSOIL.a */,
-                17FD33D9208FF4A300C7FC56 /* CoreFoundation.framework */,
-            );
-            name = Frameworks;
-            sourceTree = "<group>";
-        };
+		173FEEF81AA63A07006CCB85 = {
+			isa = PBXGroup;
+			children = (
+				A882FAA020A10A8400A948C0 /* gameInfo.cpp */,
+				1708B5402091F634007BA7C1 /* AnimatedRect.cpp */,
+				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
+				1799B7E61E5ECD67006D7CBD /* App.cpp */,
+				A882FA9120A018F900A948C0 /* Board.cpp */,
+				A882FA9A20A0E00F00A948C0 /* Mice.cpp */,
+				A882FA8820A0184C00A948C0 /* Coord.cpp */,
+				1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
+				A882FA8B20A0189F00A948C0 /* Snake.cpp */,
+				1749D6461E9D3D5C0038BC46 /* TexRect.cpp */,
+				A882FA9D20A1051600A948C0 /* Button.cpp */,
+				173FEF171AA63B22006CCB85 /* GLUT.framework */,
+				173FEF151AA63B1B006CCB85 /* OpenGL.framework */,
+				1708B5412091F634007BA7C1 /* AnimatedRect.h */,
+				1799B7E71E5ECD67006D7CBD /* App.h */,
+				032A053B20A1287200B1717A /* Explosion.h */,
+				A882FA9220A018F900A948C0 /* Board.h */,
+				A882FA8920A0184C00A948C0 /* Coord.h */,
+				A882FA9B20A0E00F00A948C0 /* Mice.h */,
+				A882FAA120A10A8400A948C0 /* gameInfo.h */,
+				1799B7E41E5E3A83006D7CBD /* GlutApp.h */,
+				A882FA8C20A0189F00A948C0 /* Snake.h */,
+				A882FA9E20A1051600A948C0 /* Button.h */,
+				1749D6471E9D3D5C0038BC46 /* TexRect.h */,
+				032A053920A1051800B1717A /* HighScores.h */,
+				17FD33D8208FF4A300C7FC56 /* Frameworks */,
+				173FEF021AA63A07006CCB85 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		173FEF021AA63A07006CCB85 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				173FEF011AA63A07006CCB85 /* glutapp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17FD33D8208FF4A300C7FC56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17FD33DB208FF55B00C7FC56 /* libSOIL.a */,
+				1708B53E2091E224007BA7C1 /* libSOIL.a */,
+				17FD33D9208FF4A300C7FC56 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
