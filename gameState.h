@@ -7,7 +7,7 @@
 //
 
 #ifndef gameState_h
-#define gameInfo_h
+#define gameState_h
 #include <vector>
 #include <iostream>
 #include "TexRect.h"
@@ -52,4 +52,4 @@ struct gameState{
     
 
 };
-#endif /* gameInfo_h */
+#endif /* gameState_h */
