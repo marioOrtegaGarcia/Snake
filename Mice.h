@@ -37,7 +37,7 @@ public:
     void kill();
     void draw();
     void changeDirection(int key);
-    void move(float step = 0.0005);
+    void move(float step = 0.05);
     bool contains(float x, float y);
     ~taco();
 };

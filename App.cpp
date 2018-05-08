@@ -17,8 +17,7 @@ void app_timer(int value){
     if (!singleton->pause->checkPauseClicked()) {
         
         //Move taco
-        singleton->tacos[0]->changeDirection((int)(singleton->count) % 4);
-        singleton->tacos[0]->move(.0005);
+        singleton->tacos[0]->move(.005);
         
         //Leonidas Alive
         if (singleton->leonidas->alive) {
@@ -36,6 +35,10 @@ void app_timer(int value){
             singleton->leonidas->collisionCheck();
             if(singleton->leonidas->shouldGrow(singleton->rats, x, y)) {
                 singleton->score->incScore(5);
+            }
+            if(singleton->leonidas->shouldGrow(singleton->tacos, x, y)) {
+                singleton->score->incScore(15);
+                singleton->tacos[0]->changeDirection((int)(singleton->count) % 4);
             }
         //Leonidas Dead
         }else {
@@ -270,7 +273,7 @@ void App::mouseDown(float x, float y){
         leonidas->~Snake();
         leonidas = new Snake();
         rats.clear();
-        tacos.clear();
+        //tacos.clear();
         rats.push_back(new Mice(-0.2,0.6));
         tacos.push_back(new taco(-0.2,-0.6));
         score->reset();
@@ -305,6 +308,8 @@ void App::keyPress(unsigned char key) {
         while (rats.size() >= 1) {
             delete rats.back();
             rats.pop_back();
+            delete tacos.back();
+            tacos.pop_back();
         }
         while (home.size() >= 1) {
             delete home.back();

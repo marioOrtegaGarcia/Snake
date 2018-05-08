@@ -79,6 +79,23 @@ bool Snake::shouldGrow(std::vector<Mice*> &rats, float x, float y) {
     }
     return false;
 }
+
+//Increases snake length once it eats
+bool Snake::shouldGrow(std::vector<taco*> &tacos, float x, float y) {
+    
+    for (int i = 0; i < tacos.size(); i++) {
+        if (tacos[i]->contains(snake.front()->x, snake.front()->y)) {
+            grow+=10;
+            tacos.erase(tacos.begin() + i);
+            bool neg = false;
+            if(rand()%2 == 0) neg = true;
+            
+            tacos.push_back(new taco(x, y));
+            return true;
+        }
+    }
+    return false;
+}
 //Return true if head contains bumped someting
 void Snake::collisionCheck() {
     float x = snake.front()->x;

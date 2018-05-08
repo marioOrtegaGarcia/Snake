@@ -39,7 +39,8 @@ Mice::~Mice(){
 taco::taco(float x, float y) {
     loc = new Coord(x,y);
     alive = true;
-    up = down = left = right = false;
+    up = true;
+    down = left = right = false;
     tacomouse = new TexRect("images/tacomouse.png", x, y, w, h);
 }
 
@@ -94,8 +95,34 @@ bool taco::contains(float mx, float my) {
 }
 
 void taco::move(float step) {
-    loc->x-=step;
-    tacomouse->moveLeft(step);
+    if (left == true) {
+        loc->x-=step;
+        tacomouse->moveLeft(step);
+        if (loc->x < -0.99){
+            loc->x = 0.99;
+        }
+    }
+    if (right == true) {
+        loc->x+=step;
+        tacomouse->moveRight(step);
+        if (loc->x > 0.99){
+            loc->x = -0.99;
+        }
+    }
+    if (down == true) {
+        loc->y-=step;
+        tacomouse->moveDown(step);
+        if (loc->y < -.99){
+            loc->y = .83;
+        }
+    }
+    if (up == true) {
+        loc->y+=step;
+        tacomouse->moveUp(step);
+        if (loc->y > .83){
+            loc->y = -.99;
+        }
+    }
 }
 
 taco::~taco() {
