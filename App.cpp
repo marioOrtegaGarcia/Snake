@@ -261,6 +261,7 @@ void App::mouseDown(float x, float y){
         leonidas = new Snake();
         rats.clear();
         rats.push_back(new Mice(-0.2,0.6));
+        rats.push_back(new taco(-0.2,-0.6));
         score->reset();
         game->gameMode = 0;
     }

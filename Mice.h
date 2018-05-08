@@ -21,7 +21,7 @@ public:
     bool alive;
     Mice(float x= 0, float y=0);
     void kill();
-    void draw();
+    virtual void draw();
     bool contains(float x, float y);
     ~Mice();
 };
