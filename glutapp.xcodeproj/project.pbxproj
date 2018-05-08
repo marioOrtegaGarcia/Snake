@@ -56,6 +56,7 @@
 		1799B7E71E5ECD67006D7CBD /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
 		17FD33D9208FF4A300C7FC56 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		17FD33DB208FF55B00C7FC56 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSOIL.a; sourceTree = "<group>"; };
+		A827ABAF20A1996700441823 /* HighScores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
 		A882FA8820A0184C00A948C0 /* Coord.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Coord.cpp; sourceTree = "<group>"; };
 		A882FA8920A0184C00A948C0 /* Coord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coord.h; sourceTree = "<group>"; };
 		A882FA8B20A0189F00A948C0 /* Snake.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Snake.cpp; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 				A882FA8B20A0189F00A948C0 /* Snake.cpp */,
 				1749D6461E9D3D5C0038BC46 /* TexRect.cpp */,
 				A882FA9D20A1051600A948C0 /* Button.cpp */,
+				A827ABAF20A1996700441823 /* HighScores.h */,
 				173FEF171AA63B22006CCB85 /* GLUT.framework */,
 				173FEF151AA63B1B006CCB85 /* OpenGL.framework */,
 				1708B5412091F634007BA7C1 /* AnimatedRect.h */,
