@@ -40,7 +40,7 @@ void Rect::unClick() {pressed = false;}
 bool Rect::contains(float mx, float my)
 {return ((mx > x && mx < (x + w))   &&
          (my < y && my > (y - h))
-        );}
+         );}
 
 Rect::~Rect(){
 }

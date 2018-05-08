@@ -1,13 +1,13 @@
 //
-//  gameInfo.h
+//  gameState.h
 //  glutapp
 //
 //  Created by Mario Ortega on 5/7/18.
 //  Copyright © 2018 Angelo Kyrilov. All rights reserved.
 //
 
-#ifndef gameInfo_h
-#define gameInfo_h
+#ifndef gameState_h
+#define gameState_h
 #include <vector>
 #include <iostream>
 #include "TexRect.h"
@@ -53,4 +53,4 @@ struct gameState{
     
 
 };
-#endif /* gameInfo_h */
+#endif /* gameState_h */

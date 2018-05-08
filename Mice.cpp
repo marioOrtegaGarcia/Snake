@@ -16,7 +16,6 @@ Mice::Mice(float x, float y) {
 
 void Mice::kill(){
     alive = false;
-    //delete this;
 }
 
 void Mice::draw() {

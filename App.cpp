@@ -61,11 +61,10 @@ void app_timer(int value){
     }
 }
 
-
-
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
     singleton = this;
+    
     mx = 0.0;
     my = 0.0;
     
@@ -110,11 +109,13 @@ void App::mouseDown(float x, float y){
     // Redraw the scene
     redraw();
 }
+
 void App::mouseDrag(float x, float y){
     // Update app state
     mx = x;
     my = y;
 }
+
 void App::idle(){}
 
 void App::keyPress(unsigned char key) {
