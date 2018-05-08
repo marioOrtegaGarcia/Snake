@@ -14,11 +14,10 @@
 //Creates the snake at the Center
 Snake::Snake() {
     girth = 2.0/40;
-    down = left = right = false;
-    //alive = up = true;
-    grow = 10;
+    up = down = left = right = false;
     alive = true;
-    up = false;
+    
+    grow = 10;
     snake.push_front(new Coord(0.0,0.0));
 }
 //Changes Bool Valuse for Directions
@@ -69,10 +68,18 @@ void Snake::move(float step) {
         grow--;
 }
 //Increases snake length once it eats
-bool Snake::shouldGrow(std::vector<Mice*> &rats) {
-    if(rats[0]->contains(snake.front()->x, snake.front()->y)){
-        grow+=10;
-        return true;
+bool Snake::shouldGrow(std::vector<Mice*> &rats, float x, float y) {
+    
+    for (int i = 0; i < rats.size(); i++) {
+        if (rats[i]->contains(snake.front()->x, snake.front()->y)) {
+            grow+=10;
+            rats.erase(rats.begin() + i);
+            bool neg = false;
+            if(rand()%2 == 0) neg = true;
+            
+            rats.push_back(new Mice(x, y));
+            return true;
+        }
     }
     return false;
 }
@@ -99,7 +106,7 @@ void Snake::draw() {
     bool alternateColor = true;
     
     for (itr = snake.rbegin(); itr != snake.rend(); ++itr) {
-        if (itr == snake.rbegin()) glColor3d(1.0, 0.0, 0.0);
+        if (itr == snake.rend()) glColor3d(1.0, 0.0, 0.0);
         else if (alternateColor) {
             glColor3d(1.0, 1.0, 1.0);
             alternateColor = false;

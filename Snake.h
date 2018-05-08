@@ -30,7 +30,7 @@ public:
     Snake();
     void changeDirection(int key);
     void move(float step = 0.015);
-    bool shouldGrow(vector<Mice*> &rats);
+    bool shouldGrow(vector<Mice*> &rats, float x, float y);
     bool atMouse();
     void collisionCheck();
     void draw();

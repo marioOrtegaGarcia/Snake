@@ -5,10 +5,22 @@ using namespace std;
 static App* singleton;
 
 void app_timer(int value){
+    singleton->count++;
+    if (singleton->count > 40) {
+        singleton->count = 0;
+    }
+    float x =  singleton->count / 50.0;
+    float y =  singleton->count / 60.0;
+    if ((int)singleton->count % 2 == 0) x = x * singleton->mult;
+    if ((int)singleton->count % 3 == 0) y = y * singleton->mult;
+    
+    std::cout << value<< endl;
     if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->move();
         singleton->leonidas->collisionCheck();
-        if(singleton->leonidas->shouldGrow(singleton->rats)) singleton->score->incScore(5);
+        if(singleton->leonidas->shouldGrow(singleton->rats, x, y)) {
+            singleton->score->incScore(5);
+        }
     }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
@@ -287,6 +299,8 @@ void App::mouseDown(float x, float y){
         leonidas->alive = false;
         leonidas->~Snake();
         leonidas = new Snake();
+        rats.clear();
+        rats.push_back(new Mice(-0.2,0.6));
         score->reset();
         game->gameMode = 0;
     }
