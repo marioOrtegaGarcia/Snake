@@ -95,6 +95,7 @@ void App::draw() {
     if (game->getGameMode() == 1) {
         app_timer(1);
     }
+    
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
