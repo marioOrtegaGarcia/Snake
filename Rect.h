@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 struct Rect{
-    float x, y, width, height;
+    float x, y, w, h;
     bool pressed = false;
     Rect(float a, float b, float c, float d);
     float getX();

@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				03CEED4D20A17EE9005417AF /* Rect.cpp */,
-				A882FAA020A10A8400A948C0 /* gameInfo.cpp */,
+				A882FAA020A10A8400A948C0 /* gameState.cpp */,
 				1708B5402091F634007BA7C1 /* AnimatedRect.cpp */,
 				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				1799B7E61E5ECD67006D7CBD /* App.cpp */,
@@ -114,7 +114,7 @@
 				A882FA9E20A1051600A948C0 /* Button.h */,
 				1799B7E41E5E3A83006D7CBD /* GlutApp.h */,
 				A882FA8C20A0189F00A948C0 /* Snake.h */,
-				A882FAA120A10A8400A948C0 /* gameInfo.h */,
+				A882FAA120A10A8400A948C0 /* gameState.h */,
 				1749D6471E9D3D5C0038BC46 /* TexRect.h */,
 				17FD33D8208FF4A300C7FC56 /* Frameworks */,
 				173FEF021AA63A07006CCB85 /* Products */,
@@ -204,7 +204,7 @@
 				173FEF0C1AA63AC4006CCB85 /* app_main.cpp in Sources */,
 				1799B7E51E5E3A83006D7CBD /* GlutApp.cpp in Sources */,
 				1749D6481E9D3D5C0038BC46 /* TexRect.cpp in Sources */,
-				A882FAA220A10A8400A948C0 /* gameInfo.cpp in Sources */,
+				A882FAA220A10A8400A948C0 /* gameState.cpp in Sources */,
 				A882FA8D20A0189F00A948C0 /* Snake.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

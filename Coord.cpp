@@ -17,11 +17,11 @@ void Coord::moveUp(float step) {
 void Coord::moveDown(float step) {
     y-=step;
 }
-void Coord::moveRight(float step) {
-    x+=step;
-}
 void Coord::moveLeft(float step) {
     x-=step;
+}
+void Coord::moveRight(float step) {
+    x+=step;
 }
 Coord::~Coord (){
     

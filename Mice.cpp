@@ -6,17 +6,19 @@
 //  Copyright © 2018 Angelo Kyrilov. All rights reserved.
 //
 #include <iostream>
-using namespace std;
 #include "Mice.h"
+
 Mice::Mice(float x, float y) {
     loc = new Coord(x,y);
     alive = true;
     mouse = new TexRect("images/mouse.png", x, y, w, h);
 }
+
 void Mice::kill(){
     alive = false;
     //delete this;
 }
+
 void Mice::draw() {
     if (alive) {
         mouse->draw();
@@ -31,6 +33,7 @@ bool Mice::contains(float mx, float my) {
     }
     return false;
 }
+
 Mice::~Mice(){
     delete mouse;
     delete loc;

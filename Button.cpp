@@ -23,7 +23,7 @@ pauseButton::pauseButton (const char* filename, float x, float y, float w, float
     pauseClicked = false;
 }
 
-bool pauseButton::checkPauseClicked() {
+bool pauseButton::gamePaused() {
     return pauseClicked;
 }
 

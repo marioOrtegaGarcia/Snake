@@ -29,7 +29,7 @@ class pauseButton : public TexRect {
 public:
     bool pauseClicked;
     pauseButton (const char* filename, float x, float y, float w, float h);
-    bool checkPauseClicked();
+    bool gamePaused();
     bool contains(float mx, float my);
     
     void changePause(){
