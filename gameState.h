@@ -9,6 +9,7 @@
 #ifndef gameInfo_h
 #define gameInfo_h
 #include <vector>
+#include <iostream>
 #include "TexRect.h"
 #include "AnimatedRect.h"
 #include "Rect.h"
@@ -18,23 +19,9 @@
 #include "HighScores.h"
 
 #include <stdio.h>
-struct gameInfo{
-    int gameMode;       // 0 for home screen, 1 to play game, 2 for high scores
-    gameInfo();
+struct gameState{
+    int gameMode;       
     bool gameOver;
-    float x, y, w, h;
-    bool gameState();
-    void endGame();
-    bool checkIfOver();
-    void draw();
-    void writeText(const char *text, int x, int y, int length);
-    void writeText2(const char *text2, int x, int y, int length);
-    void passKeys(int key);
-    void passMouseCoords(float x, float y);
-    int getGameMode();
-    ~gameInfo();
-    
-    
     
     float count = 0, mult = -1;
     Score* score;
@@ -42,11 +29,27 @@ struct gameInfo{
     Snake* leonidas;
     TexRect* menu;
     TexRect* background;
-    resetButton* reset;
-    pauseButton* pause;
+    resetButton* resetB;
+    pauseButton* pauseB;
     HighScores* highScores;
     
     vector<Mice*> rats;
     vector<Rect*> home;
+    
+    gameState();
+    void displayMenu();
+    void displayGameScreen();
+    void displayTopScores();
+    void draw();
+    void writeText(const char *text, int x, int y, int length);
+    void passKeys(int key);
+    void passMouseCoords(float x, float y);
+    int getGameMode();
+    bool isGameOver();
+    void endGame();
+    void resetGame();
+    ~gameState();
+    
+
 };
 #endif /* gameInfo_h */

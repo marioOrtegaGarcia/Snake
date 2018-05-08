@@ -13,7 +13,7 @@
 #include "HighScores.h"
 */
 
-#include "gameInfo.h"
+#include "gameState.h"
 
 class App: public GlutApp {
     // Maintain app state here
@@ -32,7 +32,7 @@ public:
     void specialKeyUp(int key);
     void idle();
     
-    gameInfo* game;
+    gameState* game;
 };
 
 #endif

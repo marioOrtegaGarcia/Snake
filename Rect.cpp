@@ -7,58 +7,40 @@
 //
 
 #include "Rect.h"
-Rect::Rect(float a, float b, float c, float d){
-    x = a;
-    y = b;
-    width = c;
-    height = d;
+Rect::Rect(float x, float y, float w, float h){
+    this->x = x;
+    this->y = y;
+    this->w = w;
+    this->h = h;
 }
 
-float Rect::getX(){
-    return x;
-}
+float Rect::getX(){return x;}
 
-float Rect::getY(){
-    return y;
-}
+float Rect::getY(){return y;}
 
-float Rect::getWidth(){
-    return width;
-}
+float Rect::getWidth(){return w;}
 
-float Rect::getHeight(){
-    return height;
-}
+float Rect::getHeight(){return h;}
 
-void Rect::setX(float input){
-    x = input;
-}
+void Rect::setX(float input){x = input;}
 
-void Rect::setY(float input){
-    y = input;
-}
+void Rect::setY(float input){y = input;}
 
-void Rect::setWidth(float input){
-    width = input;
-}
+void Rect::setWidth(float input){w = input;}
 
-void Rect::setHeight(float input){
-    height = input;
-}
+void Rect::setHeight(float input){h = input;}
 
 void Rect::click(){
     if (!pressed) pressed = true;
-    else pressed = false;
+    else          pressed = false;
 }
 
-void Rect::unClick() {
-    pressed = false;
-}
+void Rect::unClick() {pressed = false;}
 
-bool Rect::contains(float inputX, float inputY){
-    return ((inputX > x && inputX < (x + width)) && (inputY < y && inputY > (y - height)));
-}
+bool Rect::contains(float mx, float my)
+{return ((mx > x && mx < (x + w))   &&
+         (my < y && my > (y - h))
+        );}
 
 Rect::~Rect(){
-    
-    }
+}

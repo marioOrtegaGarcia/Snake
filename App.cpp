@@ -6,12 +6,12 @@ static App* singleton;
 
 
 void app_timer(int value){
-    if (singleton->game->gameState() && !singleton->game->explode->done()) {
+    if (singleton->game->isGameOver() && !singleton->game->explode->done()) {
         singleton->game->explode->advance();
     }
     
     //Game Not Paused
-    if (!singleton->game->pause->checkPauseClicked()) {
+    if (!singleton->game->pauseB->gamePaused()) {
         
         //Leonidas Alive
         if (singleton->game->leonidas->alive) {
@@ -23,7 +23,6 @@ void app_timer(int value){
             float y =  singleton->game->count / 60.0;
             if ((int)singleton->game->count % 2 == 0) x = x * singleton->game->mult;
             if ((int)singleton->game->count % 3 == 0) y = y * singleton->game->mult;
-            
             
             singleton->game->leonidas->move();
             singleton->game->leonidas->collisionCheck();
@@ -62,7 +61,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     mx = 0.0;
     my = 0.0;
     
-    game = new gameInfo();
+    game = new gameState();
 }
 void App::specialKeyPress(int key){game->passKeys(key);}
 void App::specialKeyUp(int key){}
@@ -113,7 +112,7 @@ void App::keyPress(unsigned char key) {
         exit(0);
     }
     
-    //if (key == '/') game->pause->changePause();
-    //if (key == ' ') mouseDown(-0.99, 0.99);
+    if (key == '/') game->pauseB->changePause();
+    if (key == ' ') mouseDown(-0.99, 0.99);
     
 }

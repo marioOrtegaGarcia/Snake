@@ -19,6 +19,7 @@ class Mice {
     float h = 1.83/40;
 public:
     bool alive;
+    
     Mice(float x= 0, float y=0);
     void kill();
     void draw();

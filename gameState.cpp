@@ -7,27 +7,21 @@
 //
 
 #include "gameState.h"
-#include <iostream>
-using namespace std;
+
 gameState::gameState() {
-    gameOver = false;   // Game is not over when started
-    gameMode = 0;
-    // Draw the home buttons
-    home.push_back(new Rect(-0.3, 0.55, 0.6, 0.25));
-    home.push_back(new Rect(-0.3, -0.35, 0.6, 0.25));
+    gameOver = false;   //Game Statrted
+    gameMode = 0;       //GameMode {(0 -> Menu Screen), (1 -> Game Screen), (2 -> High Scores)}
+    home.push_back(new Rect(-0.3, 0.55, 0.6, 0.25)); //Top Menu Button
+    home.push_back(new Rect(-0.3, -0.35, 0.6, 0.25));//Bottom Menu Button
     score = new Score();
     menu = new TexRect("images/menu.png", -1, 1, 2, 2);
     background = new TexRect("images/grass.jpeg", -1, .83, 2, 2);
     explode = new AnimatedRect("images/explosion.png", 9, 9, 0, 0 , 0.5 , 0.5);
-    reset = new resetButton("images/reset.png", -1, 1, .167, .167);
-    pause = new pauseButton("images/pause.png", .83, 1, .167, .167);
+    resetB = new resetButton("images/reset.png", -1, 1, .167, .167);
+    pauseB = new pauseButton("images/pause.png", .83, 1, .167, .167);
     leonidas = new Snake();
     highScores = new HighScores();
     rats.push_back(new Mice(0,0.28));
-}
-
-bool gameState::gameState(){
-    return gameOver;
 }
 
 void gameState::displayMenu() {
@@ -60,8 +54,8 @@ void gameState::displayGameScreen() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     background->draw();
     score->draw();
-    reset->draw();
-    pause->draw();
+    resetB->draw();
+    pauseB->draw();
     
     rats[0]->draw();
     leonidas->draw();
@@ -105,7 +99,7 @@ void gameState::displayTopScores() {
     glColor3f(1.0, 1.0, 1.0);
     writeText(text2.data(), 360, 460, 15);
     highScores->drawScores();
-    reset->draw();
+    resetB->draw();
 }
 
 void gameState::draw() {
@@ -135,39 +129,34 @@ void gameState::writeText(const char *text, int x, int y, int length){
 }
 
 void gameState::passKeys(int key) {
-    if (leonidas->alive && !pause->checkPauseClicked() && key >= 100 && key <= 103) {
+    if (leonidas->alive && !pauseB->gamePaused() && key >= 100 && key <= 103)
         leonidas->changeDirection(key);
-    }
 }
+
 void gameState::passMouseCoords(float x, float y) {
     if (gameMode == 0){                                           // Title Screen
-        if (home[0]->contains(x, y)) gameMode = 1;                // Snake Game
+        if      (home[0]->contains(x, y)) gameMode = 1;           // Snake Game
         else if (home[1]->contains(x, y)) gameMode = 2;           // High Scores
-    }else if (gameMode == 1 && !gameOver){
-        checkIfOver();
-    }else if (gameMode == 2 && !gameOver){
-        checkIfOver();
     }
+    if (pauseB->contains(x, y)) pauseB->changePause();
     
-    if (pause->contains(x, y)){
-        pause->changePause();
-    }
-    
-    if (reset->contains(x, y)){
-        resetGame();
-    }
+    if (resetB->contains(x, y)) resetGame();
 }
+
 int gameState::getGameMode() {
     return gameMode;
 }
-bool gameState::checkIfOver() {
+
+bool gameState::isGameOver(){
     return gameOver;
 }
+
 void gameState::endGame(){
     gameOver = true;
 }
+
 void gameState::resetGame() {
-    reset->resetClicked = true;
+    resetB->resetClicked = true;
     gameOver = true;
     leonidas->alive = false;
     leonidas->~Snake();
@@ -181,15 +170,14 @@ void gameState::resetGame() {
     gameOver = false;
 }
 
-
 gameState::~gameState() {
     delete score;
     delete explode;
     delete leonidas;
     delete menu;
     delete background;
-    delete reset;
-    delete pause;
+    delete resetB;
+    delete pauseB;
     delete highScores;
     while (rats.size() >= 1) {
         delete rats.back();
