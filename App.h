@@ -2,17 +2,6 @@
 #define App_hpp
 
 #include "GlutApp.h"
-/*
-#include <vector>
-#include "TexRect.h"
-#include "AnimatedRect.h"
-#include "Rect.h"
-#include "Button.h"
-#include "Snake.h"
-#include "Mice.h"
-#include "HighScores.h"
-*/
-
 #include "gameState.h"
 
 class App: public GlutApp {
