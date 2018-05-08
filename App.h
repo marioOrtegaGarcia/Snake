@@ -7,6 +7,7 @@
 #include "Snake.h"
 #include "Button.h"
 #include "gameInfo.h"
+#include <vector>
 
 class App: public GlutApp {
     // Maintain app state here
@@ -35,7 +36,8 @@ public:
     TexRect* background;
     resetButton* reset;
     pauseButton* pause;
-    gameInfo *game = new gameInfo;
+    gameInfo *game;
+    vector<Mice*> rats;
 };
 
 #endif
