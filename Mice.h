@@ -26,4 +26,20 @@ public:
     bool contains(float x, float y);
     ~Mice();
 };
+
+class taco : public Mice {
+    TexRect* tacomouse;
+    Coord* loc;
+    float w = 2.0/20;
+    float h = 1.83/20;
+    bool up, down, left, right;
+public:
+    taco(float x = 0, float y = 0);
+    void kill();
+    void draw();
+    void changeDirection(int key);
+    void move(float step = 0.05);
+    bool contains(float x, float y);
+    ~taco();
+};
 #endif /* Mice_hpp */
