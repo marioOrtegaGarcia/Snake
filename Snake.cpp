@@ -70,9 +70,13 @@ void Snake::move(float step) {
 }
 //Increases snake length once it eats
 bool Snake::shouldGrow(std::vector<Mice*> &rats) {
-    if(rats[0]->contains(snake.front()->x, snake.front()->y)){
-        grow+=10;
-        return true;
+    
+    for (int i = 0; i < rats.size(); i++) {
+        if (rats[i]->contains(snake.front()->x, snake.front()->y)) {
+            grow+=10;
+            rats.erase(rats.begin() + i);
+            return true;
+        }
     }
     return false;
 }
@@ -99,7 +103,7 @@ void Snake::draw() {
     bool alternateColor = true;
     
     for (itr = snake.rbegin(); itr != snake.rend(); ++itr) {
-        if (itr == snake.rbegin()) glColor3d(1.0, 0.0, 0.0);
+        if (itr == snake.rend()) glColor3d(1.0, 0.0, 0.0);
         else if (alternateColor) {
             glColor3d(1.0, 1.0, 1.0);
             alternateColor = false;
