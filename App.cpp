@@ -91,41 +91,8 @@ void App::draw() {
     float oneThird = 0.333;
     float twoThirds = 0.667;
     
-    if (game->gameMode == 0){           // Home Screen
-        // Draw the two home buttons
-        menu->draw();
-        glColor3f(1.0, 0.0, 0.0);
-        for (int i = 0; i < home.size(); i++){
-            glBegin(GL_POLYGON);
-            glVertex2f(home[i]->getX(), home[i]->getY());
-            glVertex2f(home[i]->getX() + home[i]->getWidth(), home[i]->getY());
-            glVertex2f(home[i]->getX() + home[i]->getWidth(), home[i]->getY() - home[i]->getHeight());
-            glVertex2f(home[i]->getX(), home[i]->getY() - home[i]->getHeight());
-            glEnd();
-        }
-        //Write "Play"
-        string text;
-        text = "Play";
-        glColor3f(1.0, 1.0, 1.0);
-        writeText(text.data(), 380, 430, 15);
-        
-        //Write "High Scores"
-        string text2;
-        text2 = "High Scores";
-        glColor3f(1.0, 1.0, 1.0);
-        writeText(text2.data(), 365, 160, 15);
-        
-    }else if (game->gameMode == 1){     // Snake game
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        background->draw();
-        score->draw();
-        reset->draw();
-        pause->draw();
-        
-        rats[0]->draw();
-        tacos[0]->draw();
-        leonidas->draw();
-        explode->draw();
+    game->draw();
+    if (game->getGameMode() == 1) {
         app_timer(1);
     }
     // We have been drawing everything to the back buffer
