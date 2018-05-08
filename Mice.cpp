@@ -5,20 +5,33 @@
 //  Created by Mario Ortega on 5/7/18.
 //  Copyright © 2018 Angelo Kyrilov. All rights reserved.
 //
-
+#include <iostream>
+using namespace std;
 #include "Mice.h"
 Mice::Mice(float x, float y) {
-    float width = 2.0/40;
-    float height = 1.83/40;
+    loc = new Coord(x,y);
     alive = true;
-    mouse = new TexRect("images/mouse.png", -1 + (width * x), 0.83 - (height * y), width, height);
+    mouse = new TexRect("images/mouse.png", x, y, w, h);
     //mouse = new TexRect("images/mouse.png", .5, .5, width, height);
 }
 void Mice::kill(){
     alive = false;
-    delete this;
+    //delete this;
 }
 void Mice::draw() {
-    mouse->draw();
+    if (alive) {
+        mouse->draw();
+    }
 }
-Mice::~Mice(){}
+bool Mice::contains(float mx, float my) {
+    if (mx >= loc->x && mx <= loc->x+w && my <= loc->y && my >= loc->y - h) {
+        
+        kill();
+        return true;
+    }
+    return false;
+}
+Mice::~Mice(){
+    delete mouse;
+    delete loc;
+}

@@ -8,6 +8,7 @@
 #include "Button.h"
 #include "HighScores.h"
 #include "gameInfo.h"
+#include <vector>
 
 class App: public GlutApp {
     // Maintain app state here
@@ -33,12 +34,13 @@ public:
     Score* score;
     Board* board;
     Snake* leonidas;
+    TexRect* menu;
     TexRect* background;
     resetButton* reset;
     pauseButton* pause;
     HighScores* highScores;
-    gameInfo *game = new gameInfo;
-    
+    gameInfo *game;
+    vector<Mice*> rats;
 };
 
 #endif

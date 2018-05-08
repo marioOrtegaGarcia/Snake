@@ -1,5 +1,5 @@
 #include "App.h"
-#include <vector>
+//#include <vector>
 
 using namespace std;
 static App* singleton;
@@ -8,7 +8,7 @@ void app_timer(int value){
     if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->move();
         singleton->leonidas->collisionCheck();
-        singleton->leonidas->shouldGrow(singleton->board);
+        if(singleton->leonidas->shouldGrow(singleton->rats)) singleton->score->incScore(5);
     }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
@@ -144,7 +144,9 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     game_over = false;
     score = new Score();
     board = new Board();
-    board->placeMice();
+    
+    menu = new TexRect("images/menu.png", -1, 1, 2, 2);
+    //board->placeMice();
     
     background = new TexRect("images/grass.jpeg", -1, .83, 2, 2);
     reset = new resetButton("images/reset.png", -1, 1, .167, .167);
@@ -152,6 +154,8 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     leonidas = new Snake();
     highScores = new HighScores();
     
+    game = new gameInfo();
+    rats.push_back(new Mice(0,0.28));
 }
 
 void App::specialKeyPress(int key){
@@ -180,6 +184,7 @@ void App::draw() {
     
     if (game->gameMode == 0){           // Home Screen
         // Draw the two home buttons
+        menu->draw();
         glColor3f(1.0, 0.0, 0.0);
         for (int i = 0; i < home.size(); i++){
             glBegin(GL_POLYGON);
@@ -208,6 +213,7 @@ void App::draw() {
         reset->draw();
         pause->draw();
         board->draw();
+        rats[0]->draw();
         leonidas->draw();
         app_timer(1);
         
@@ -247,12 +253,8 @@ void App::draw() {
         text2 = "High Scores";
         glColor3f(1.0, 1.0, 1.0);
         writeText2(text2.data(), 360, 460, 15);
-        
         highScores->drawScores();
-        
         reset->draw();
-        
-       
     }
     
     // We have been drawing everything to the back buffer
@@ -285,7 +287,7 @@ void App::mouseDown(float x, float y){
         leonidas->alive = false;
         leonidas->~Snake();
         leonidas = new Snake();
-        if(pause->checkPauseClicked()) pause->changePause();
+        score->reset();
         game->gameMode = 0;
     }
     
@@ -316,6 +318,7 @@ void App::keyPress(unsigned char key) {
     }
     
     if (key == ' '){
-        
+        //singleton->leonidas->shouldGrow();
+        //score->incScore(5);
     }
 }

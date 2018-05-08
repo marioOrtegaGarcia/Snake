@@ -10,6 +10,7 @@
 #include <iostream>
 #include <math.h>
 
+
 //Creates the snake at the Center
 Snake::Snake() {
     girth = 2.0/40;
@@ -68,15 +69,12 @@ void Snake::move(float step) {
         grow--;
 }
 //Increases snake length once it eats
-void Snake::shouldGrow(Board* board) {
-    Coord* head = snake.front();
-    
-    int x = (int)floor(head->x);
-    int y = (int)floor(head->y);
-    std::cout << "(" << x << "," << y << ")" << std::endl;
-    //board->containsMice(<#int x#>, <#int y#>)
-    //grow+=10;
-    //if ( (false)) grow += 10;
+bool Snake::shouldGrow(std::vector<Mice*> &rats) {
+    if(rats[0]->contains(snake.front()->x, snake.front()->y)){
+        grow+=10;
+        return true;
+    }
+    return false;
 }
 //Return true if head contains bumped someting
 void Snake::collisionCheck() {
@@ -97,11 +95,11 @@ void Snake::collisionCheck() {
     a = 0;
 }
 void Snake::draw() {
-    list<Coord*>::iterator itr;
+    list<Coord*>::reverse_iterator itr;
     bool alternateColor = true;
     
-    for (itr = snake.begin(); itr != snake.end(); ++itr) {
-        if (itr == snake.begin()) glColor3d(0.0, 1.0, 0.0);
+    for (itr = snake.rbegin(); itr != snake.rend(); ++itr) {
+        if (itr == snake.rbegin()) glColor3d(1.0, 0.0, 0.0);
         else if (alternateColor) {
             glColor3d(1.0, 1.0, 1.0);
             alternateColor = false;
