@@ -35,7 +35,7 @@ void app_timer(int value){
             }
             //Leonidas Dead
         }else {
-            if (singleton->game->leonidas->length() > (singleton->game->score->getScore()*3)) {
+            if (singleton->game->leonidas->length() > (singleton->game->score->getScore()*2)) {
                 Coord* head = singleton->game->leonidas->getHead();
                 singleton->game->explode->relocate(head->x, head->y);
             }
