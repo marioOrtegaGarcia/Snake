@@ -8,11 +8,10 @@ void app_timer(int value){
     if (singleton->game_over && !singleton->explode->done()) {
         singleton->explode->advance();
     }
-    /*
+    
     if (singleton->explode->done()) {
-        singleton->highScores->
+        singleton->highScores->insertQueue(singleton->score->getScore());
     }
-     */
 
     //Game Not Paused
     if (!singleton->pause->checkPauseClicked()) {
