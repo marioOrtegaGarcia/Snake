@@ -30,6 +30,7 @@ public:
     
     void idle();
 
+    float count = 0, mult = -1;
     bool game_over;
     Score* score;
     Board* board;

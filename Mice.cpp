@@ -12,7 +12,6 @@ Mice::Mice(float x, float y) {
     loc = new Coord(x,y);
     alive = true;
     mouse = new TexRect("images/mouse.png", x, y, w, h);
-    //mouse = new TexRect("images/mouse.png", .5, .5, width, height);
 }
 void Mice::kill(){
     alive = false;
@@ -24,8 +23,7 @@ void Mice::draw() {
     }
 }
 bool Mice::contains(float mx, float my) {
-    if (mx >= loc->x && mx <= loc->x+w && my <= loc->y && my >= loc->y - h) {
-        
+    if (mx >= loc->x-(w/2) && mx <= loc->x+(w*1.5) && my <= loc->y+ (h/2) && my >= loc->y - (1.5 * h)) {
         kill();
         return true;
     }
