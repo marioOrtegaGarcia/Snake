@@ -6,14 +6,11 @@ static App* singleton;
 
 void app_timer(int value){
     singleton->count++;
+    if (singleton->game_over) {
+        singleton->explode->advance();
+    }
     if (singleton->count > 40) {
         singleton->count = 0;
-    }
-    
-    if(singleton->game_over == true){
-        singleton->gameOver->animate();
-        singleton->gameOver->advance();
-    
     }
     float x =  singleton->count / 50.0;
     float y =  singleton->count / 60.0;
@@ -29,11 +26,15 @@ void app_timer(int value){
     }
     if (!singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->vanish();
+        Coord* head = singleton->leonidas->getHead();
+        singleton->explode->relocate(head->x, head->y);
+        singleton->game_over = true;
+        singleton->explode->animate();
+        
     }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
     if (singleton->game_over) {
-        //singleton->leonidas->vanish();
         singleton->redraw();
         glutTimerFunc(100, app_timer, value);
     } else {
@@ -177,7 +178,7 @@ void App::draw() {
         score->draw();
         reset->draw();
         pause->draw();
-        //board->draw();
+        explode->draw();
         rats[0]->draw();
         leonidas->draw();
         gameOver->draw();

@@ -127,6 +127,9 @@ void Snake::draw() {
     }
     
 }
+Coord* Snake::getHead() {
+    return snake.front();
+}
 Snake::~Snake() {
     list<Coord*>::const_iterator itr;
     for (itr = snake.begin(); itr != snake.end(); ++itr) {
