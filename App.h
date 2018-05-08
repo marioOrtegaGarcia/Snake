@@ -31,24 +31,8 @@ public:
     void specialKeyPress(int key);
     void specialKeyUp(int key);
     void idle();
-
-
     
     gameInfo* game;
-    
-    /*
-    Score* score;
-    AnimatedRect* explode;
-    Snake* leonidas;
-    TexRect* menu;
-    TexRect* background;
-    resetButton* reset;
-    pauseButton* pause;
-    HighScores* highScores;
-    gameInfo *game;
-    vector<Mice*> rats;
-    vector<Rect*> home;
-    */
 };
 
 #endif
