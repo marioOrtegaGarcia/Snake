@@ -35,6 +35,7 @@ struct gameState{
     
     vector<Mice*> rats;
     vector<Rect*> home;
+    vector<taco*> tacos;
     
     gameState();
     void displayMenu();

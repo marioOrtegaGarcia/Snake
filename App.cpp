@@ -14,7 +14,7 @@ void app_timer(int value){
     if (!singleton->game->pauseB->gamePaused()) {
         
         //Move taco
-        singleton->tacos[0]->move(.005);
+        singleton->game->tacos[0]->move(.005);
         
         //Leonidas Alive
         if (singleton->game->leonidas->alive) {
@@ -32,9 +32,9 @@ void app_timer(int value){
             if(singleton->game->leonidas->shouldGrow(singleton->game->rats, x, y)) {
                 singleton->game->score->incScore(5);
             }
-            if(singleton->leonidas->shouldGrow(singleton->tacos, x, y)) {
-                singleton->score->incScore(15);
-                singleton->tacos[0]->changeDirection((int)(singleton->count) % 4);
+            if(singleton->game->leonidas->shouldGrow(singleton->game->tacos, x, y)) {
+                singleton->game->score->incScore(15);
+                singleton->game->tacos[0]->changeDirection((int)(singleton->game->count) % 4);
             }
         //Leonidas Dead
         }else {
@@ -68,9 +68,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     mx = 0.0;
     my = 0.0;
     
-    game = new gameInfo();
-    rats.push_back(new Mice(0,0.28));
-    tacos.push_back(new taco(0.33,-0.28));
+    game = new gameState();
 }
 
 
@@ -106,33 +104,6 @@ void App::mouseDown(float x, float y){
     mx = x;
     my = y;
     
-    if (game->gameMode == 0){                                           // Title Screen
-        if (home[0]->contains(x, y)) game->gameMode = 1;                // Snake Game
-        else if (home[1]->contains(x, y)) game->gameMode = 2;           // High Scores
-    }else if (game->gameMode == 1 && !game->gameOver){
-        game->checkIfOver();
-    }else if (game->gameMode == 2 && !game->gameOver){
-        game->checkIfOver();
-    }
-    
-    if (pause->contains(x, y)){
-        pause->changePause();
-    }
-    
-    if (reset->contains(x, y)){
-        reset->resetClicked = true;
-        game->gameOver = true;
-        leonidas->alive = false;
-        leonidas->~Snake();
-        leonidas = new Snake();
-        rats.clear();
-        //tacos.clear();
-        rats.push_back(new Mice(-0.2,0.6));
-        tacos.push_back(new taco(-0.2,-0.6));
-        score->reset();
-        game->gameMode = 0;
-    }
-    
     // Redraw the scene
     redraw();
 }
@@ -147,16 +118,6 @@ void App::keyPress(unsigned char key) {
     if (key == 27){
         // Exit the app when Esc key is pressed
         delete game;
-        while (rats.size() >= 1) {
-            delete rats.back();
-            rats.pop_back();
-            delete tacos.back();
-            tacos.pop_back();
-        }
-        while (home.size() >= 1) {
-            delete home.back();
-            home.pop_back();
-        }
         delete this;
         exit(0);
     }

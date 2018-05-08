@@ -32,20 +32,7 @@ public:
     void specialKeyUp(int key);
     void idle();
 
-    float count = 0, mult = -1;
-    bool game_over;
-    Score* score;
-    AnimatedRect* explode;
-    Snake* leonidas;
-    TexRect* menu;
-    TexRect* background;
-    resetButton* reset;
-    pauseButton* pause;
-    HighScores* highScores;
-    gameInfo *game;
-    vector<Mice*> rats;
-    vector<taco*> tacos;
-    vector<Rect*> home;
+    gameState* game;
 };
 
 #endif

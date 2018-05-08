@@ -22,6 +22,7 @@ gameState::gameState() {
     leonidas = new Snake();
     highScores = new HighScores();
     rats.push_back(new Mice(0,0.28));
+    tacos.push_back(new taco(-0.2,-0.6));
 }
 
 void gameState::displayMenu() {
@@ -58,6 +59,7 @@ void gameState::displayGameScreen() {
     pauseB->draw();
     
     rats[0]->draw();
+    tacos[0]->draw();
     leonidas->draw();
     explode->draw();
 }
@@ -163,6 +165,8 @@ void gameState::resetGame() {
     leonidas = new Snake();
     rats.clear();
     rats.push_back(new Mice(0,0.28));
+    tacos.clear();
+    tacos.push_back(new taco(0,0.28));
     highScores->insertQueue(score->getScore());
     score->reset();
     explode->reset();
