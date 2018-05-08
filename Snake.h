@@ -10,6 +10,7 @@
 #define Snake_h
 
 #include <stdio.h>
+#include <vector>
 #include <list>
 #include "Coord.h"
 #include "Board.h"
@@ -29,7 +30,7 @@ public:
     Snake();
     void changeDirection(int key);
     void move(float step = 0.015);
-    void shouldGrow(Board* board);
+    void shouldGrow(vector<Mice*> &rats);
     bool atMouse();
     void collisionCheck();
     void draw();

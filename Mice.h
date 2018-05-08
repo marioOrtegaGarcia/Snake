@@ -11,15 +11,18 @@
 
 #include <stdio.h>
 #include "TexRect.h"
+#include "Coord.h"
 class Mice {
     TexRect* mouse;
-    float x;
-    float y;
+    Coord* loc;
+    float w = 2.0/40;
+    float h = 1.83/40;
 public:
     bool alive;
     Mice(float x= 0, float y=0);
     void kill();
     void draw();
+    bool contains(float x, float y);
     ~Mice();
 };
 #endif /* Mice_hpp */
