@@ -20,7 +20,7 @@ public:
     void specialKeyPress(int key);
     void specialKeyUp(int key);
     void idle();
-
+    
     gameState* game;
 };
 
