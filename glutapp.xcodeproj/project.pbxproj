@@ -21,7 +21,6 @@
 		A882FA9C20A0E00F00A948C0 /* Mice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9A20A0E00F00A948C0 /* Mice.cpp */; };
 		A882FA9F20A1051600A948C0 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FA9D20A1051600A948C0 /* Button.cpp */; };
 		A882FAA220A10A8400A948C0 /* gameInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FAA020A10A8400A948C0 /* gameInfo.cpp */; };
-		A882FAA520A176AA00A948C0 /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A882FAA320A176AA00A948C0 /* Rect.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +36,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		032A053920A1051800B1717A /* HighScores.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
 		1708B53E2091E224007BA7C1 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = SOIL/lib/macOS/libSOIL.a; sourceTree = "<group>"; };
 		1708B5402091F634007BA7C1 /* AnimatedRect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedRect.cpp; sourceTree = "<group>"; };
 		1708B5412091F634007BA7C1 /* AnimatedRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedRect.h; sourceTree = "<group>"; };
@@ -89,8 +89,6 @@
 				1708B5402091F634007BA7C1 /* AnimatedRect.cpp */,
 				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				1799B7E61E5ECD67006D7CBD /* App.cpp */,
-				A882FAA320A176AA00A948C0 /* Rect.cpp */,
-				A882FAA420A176AA00A948C0 /* Rect.h */,
 				A882FA9A20A0E00F00A948C0 /* Mice.cpp */,
 				A882FA9B20A0E00F00A948C0 /* Mice.h */,
 				A882FA8820A0184C00A948C0 /* Coord.cpp */,
@@ -191,7 +189,6 @@
 				A882FA8A20A0184C00A948C0 /* Coord.cpp in Sources */,
 				1708B5422091F634007BA7C1 /* AnimatedRect.cpp in Sources */,
 				A882FA9F20A1051600A948C0 /* Button.cpp in Sources */,
-				A882FAA520A176AA00A948C0 /* Rect.cpp in Sources */,
 				173FEF0C1AA63AC4006CCB85 /* app_main.cpp in Sources */,
 				1799B7E51E5E3A83006D7CBD /* GlutApp.cpp in Sources */,
 				1749D6481E9D3D5C0038BC46 /* TexRect.cpp in Sources */,

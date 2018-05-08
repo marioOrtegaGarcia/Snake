@@ -1,5 +1,4 @@
 #include "AnimatedRect.h"
-#include "Explosion.h"
 
 AnimatedRect::AnimatedRect (const char* map_filename, int rows, int cols, float x=0, float y=0, float w=0.5, float h=0.5){
     
