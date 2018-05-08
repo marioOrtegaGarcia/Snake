@@ -25,28 +25,24 @@ void Snake::changeDirection(int key) {
     switch (key) {
         case 100:
             if (!right) {
-                std::cout << "left" << std::endl;
                 left = true;
                 up = down = right = false;
             }
             break;
         case 101:
             if (!down) {
-                std::cout << "up" << std::endl;
                 up = true;
                 left = right = down = false;
             }
             break;
         case 102:
             if (!left) {
-                std::cout << "right" << std::endl;
                 right = true;
                 up = down = left = false;
             }
             break;
         case 103:
             if (!up) {
-                std::cout << "down" << std::endl;
                 down = true;
                 left = right = up = false;
             }
@@ -102,7 +98,16 @@ void Snake::collisionCheck() {
     a = 0;
 }
 void Snake::vanish() {
-    if (!alive && snake.size()>=1) snake.pop_back();
+    if (!alive && snake.size()>=1) {
+        if (snake.size() > 5) {
+            snake.pop_back();
+            snake.pop_back();
+            snake.pop_back();
+            snake.pop_back();
+        }else{
+            snake.pop_back();
+        }
+    }
 }
 void Snake::draw() {
     list<Coord*>::reverse_iterator itr;
@@ -126,6 +131,12 @@ void Snake::draw() {
         glEnd();
     }
     
+}
+Coord* Snake::getHead() {
+    return snake.front();
+}
+int Snake::length() {
+    return (int)snake.size();
 }
 Snake::~Snake() {
     list<Coord*>::const_iterator itr;

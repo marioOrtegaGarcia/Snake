@@ -5,35 +5,49 @@ using namespace std;
 static App* singleton;
 
 void app_timer(int value){
-    singleton->count++;
-    if (singleton->count > 40) {
-        singleton->count = 0;
+    if (singleton->game_over && !singleton->explode->done()) {
+        singleton->explode->advance();
     }
-    
-    if(singleton->game_over == true){
-        singleton->gameOver->animate();
-        singleton->gameOver->advance();
-    
+    /*
+    if (singleton->explode->done()) {
+        singleton->highScores->
     }
-    float x =  singleton->count / 50.0;
-    float y =  singleton->count / 60.0;
-    if ((int)singleton->count % 2 == 0) x = x * singleton->mult;
-    if ((int)singleton->count % 3 == 0) y = y * singleton->mult;
-    
-    if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
-        singleton->leonidas->move();
-        singleton->leonidas->collisionCheck();
-        if(singleton->leonidas->shouldGrow(singleton->rats, x, y)) {
-            singleton->score->incScore(5);
+     */
+
+    //Game Not Paused
+    if (!singleton->pause->checkPauseClicked()) {
+        
+        //Leonidas Alive
+        if (singleton->leonidas->alive) {
+            singleton->count++;
+            if (singleton->count > 40) {
+                singleton->count = 0;
+            }
+            float x =  singleton->count / 50.0;
+            float y =  singleton->count / 60.0;
+            if ((int)singleton->count % 2 == 0) x = x * singleton->mult;
+            if ((int)singleton->count % 3 == 0) y = y * singleton->mult;
+            
+            
+            singleton->leonidas->move();
+            singleton->leonidas->collisionCheck();
+            if(singleton->leonidas->shouldGrow(singleton->rats, x, y)) {
+                singleton->score->incScore(5);
+            }
+        //Leonidas Dead
+        }else {
+            if (singleton->leonidas->length() >= (singleton->score->getScore()*2)-1) {
+                cout << "Relocated Explosion" << endl;
+                Coord* head = singleton->leonidas->getHead();
+                singleton->explode->relocate(head->x, head->y);
+            }
+            singleton->game_over = true;
+            singleton->explode->animate();
+            singleton->leonidas->vanish();
         }
     }
-    if (!singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
-        singleton->leonidas->vanish();
-    }
-    
     //Draws animation for Gameover calls itself at a rate of 100ms
     if (singleton->game_over) {
-        //singleton->leonidas->vanish();
         singleton->redraw();
         glutTimerFunc(100, app_timer, value);
     } else {
@@ -100,7 +114,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     home.push_back(new Rect(-0.3, 0.55, 0.6, 0.25));
     home.push_back(new Rect(-0.3, -0.35, 0.6, 0.25));
     
-    gameOver = new AnimatedRect("explode.bmp", 5, 5, x, y, 0.5, 0.5);
+    
     
     game_over = false;
     score = new Score();
@@ -110,7 +124,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     //board->placeMice();
     
     background = new TexRect("images/grass.jpeg", -1, .83, 2, 2);
-    explode = new AnimatedRect("images/explode.bmp", 5, 5, 0, 0 , 0.5 , 0.5);
+    explode = new AnimatedRect("images/explosion.png", 9, 9, 0, 0 , 0.5 , 0.5);
     reset = new resetButton("images/reset.png", -1, 1, .167, .167);
     pause = new pauseButton("images/pause.png", .83, 1, .167, .167);
     leonidas = new Snake();
@@ -174,10 +188,10 @@ void App::draw() {
         score->draw();
         reset->draw();
         pause->draw();
-        //board->draw();
+        
         rats[0]->draw();
         leonidas->draw();
-        gameOver->draw();
+        explode->draw();
         app_timer(1);
         
     }else if (game->gameMode == 2){     // High score screen

@@ -33,7 +33,9 @@ public:
     bool atMouse();
     void collisionCheck();
     void vanish();
+    Coord* getHead();
     void draw();
+    int length();
     ~Snake();
 };
 

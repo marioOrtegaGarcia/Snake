@@ -115,6 +115,6 @@ void AnimatedRect::stop(){
     animating = false;
 }
 void AnimatedRect::relocate(float mx, float my) {
-    this->x = mx;
-    this->y = my;
+    x = mx - (w/2);
+    y = my + (h/2);
 }
