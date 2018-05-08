@@ -89,9 +89,6 @@ void writeText2(const char *text2, int x, int y, int length){
     glMatrixMode(GL_MODELVIEW);
 }
 
-
-
-
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
     
