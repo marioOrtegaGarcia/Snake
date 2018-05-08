@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03CEED4F20A17EE9005417AF /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03CEED4D20A17EE9005417AF /* Rect.cpp */; };
 		1708B53F2091E224007BA7C1 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1708B53E2091E224007BA7C1 /* libSOIL.a */; };
 		1708B5422091F634007BA7C1 /* AnimatedRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1708B5402091F634007BA7C1 /* AnimatedRect.cpp */; };
 		173FEF0C1AA63AC4006CCB85 /* app_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 173FEF0B1AA63AC4006CCB85 /* app_main.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -84,28 +85,30 @@
 		173FEEF81AA63A07006CCB85 = {
 			isa = PBXGroup;
 			children = (
+				03CEED4D20A17EE9005417AF /* Rect.cpp */,
 				A882FAA020A10A8400A948C0 /* gameInfo.cpp */,
-				A882FAA120A10A8400A948C0 /* gameInfo.h */,
 				1708B5402091F634007BA7C1 /* AnimatedRect.cpp */,
 				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				1799B7E61E5ECD67006D7CBD /* App.cpp */,
 				F6AE984120A17D580071410D /* Rect.cpp */,
 				F6AE984220A17D580071410D /* Rect.h */,
 				A882FA9A20A0E00F00A948C0 /* Mice.cpp */,
-				A882FA9B20A0E00F00A948C0 /* Mice.h */,
 				A882FA8820A0184C00A948C0 /* Coord.cpp */,
 				1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
 				A882FA8B20A0189F00A948C0 /* Snake.cpp */,
 				1749D6461E9D3D5C0038BC46 /* TexRect.cpp */,
 				A882FA9D20A1051600A948C0 /* Button.cpp */,
-				A882FA9E20A1051600A948C0 /* Button.h */,
 				173FEF171AA63B22006CCB85 /* GLUT.framework */,
 				173FEF151AA63B1B006CCB85 /* OpenGL.framework */,
 				1708B5412091F634007BA7C1 /* AnimatedRect.h */,
 				1799B7E71E5ECD67006D7CBD /* App.h */,
 				A882FA8920A0184C00A948C0 /* Coord.h */,
+				A882FA9B20A0E00F00A948C0 /* Mice.h */,
+				03CEED4E20A17EE9005417AF /* Rect.h */,
+				A882FA9E20A1051600A948C0 /* Button.h */,
 				1799B7E41E5E3A83006D7CBD /* GlutApp.h */,
 				A882FA8C20A0189F00A948C0 /* Snake.h */,
+				A882FAA120A10A8400A948C0 /* gameInfo.h */,
 				1749D6471E9D3D5C0038BC46 /* TexRect.h */,
 				17FD33D8208FF4A300C7FC56 /* Frameworks */,
 				173FEF021AA63A07006CCB85 /* Products */,

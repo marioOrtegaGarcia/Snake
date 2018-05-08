@@ -6,14 +6,11 @@ static App* singleton;
 
 void app_timer(int value){
     singleton->count++;
+    if (singleton->game_over) {
+        singleton->explode->advance();
+    }
     if (singleton->count > 40) {
         singleton->count = 0;
-    }
-    
-    if(singleton->game_over == true){
-        singleton->gameOver->animate();
-        singleton->gameOver->advance();
-    
     }
     float x =  singleton->count / 50.0;
     float y =  singleton->count / 60.0;
@@ -29,11 +26,15 @@ void app_timer(int value){
     }
     if (!singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->vanish();
+        Coord* head = singleton->leonidas->getHead();
+        singleton->explode->relocate(head->x, head->y);
+        singleton->game_over = true;
+        singleton->explode->animate();
+        
     }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
     if (singleton->game_over) {
-        //singleton->leonidas->vanish();
         singleton->redraw();
         glutTimerFunc(100, app_timer, value);
     } else {
@@ -113,7 +114,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     //board->placeMice();
     
     background = new TexRect("images/grass.jpeg", -1, .83, 2, 2);
-    explode = new AnimatedRect("images/explode.bmp", 5, 5, 0, 0 , 0.5 , 0.5);
+    explode = new AnimatedRect("images/explosion.png", 9, 9, 0, 0 , 0.5 , 0.5);
     reset = new resetButton("images/reset.png", -1, 1, .167, .167);
     pause = new pauseButton("images/pause.png", .83, 1, .167, .167);
     leonidas = new Snake();
@@ -178,7 +179,7 @@ void App::draw() {
         score->draw();
         reset->draw();
         pause->draw();
-        //board->draw();
+        explode->draw();
         rats[0]->draw();
         rats[1]->draw();
         leonidas->draw();
