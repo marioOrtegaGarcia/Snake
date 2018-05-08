@@ -5,34 +5,37 @@ using namespace std;
 static App* singleton;
 
 void app_timer(int value){
-    singleton->count++;
-    if (singleton->game_over) {
-        singleton->explode->advance();
-    }
-    if (singleton->count > 40) {
-        singleton->count = 0;
-    }
-    float x =  singleton->count / 50.0;
-    float y =  singleton->count / 60.0;
-    if ((int)singleton->count % 2 == 0) x = x * singleton->mult;
-    if ((int)singleton->count % 3 == 0) y = y * singleton->mult;
-    
-    if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
-        singleton->leonidas->move();
-        singleton->leonidas->collisionCheck();
-        if(singleton->leonidas->shouldGrow(singleton->rats, x, y)) {
-            singleton->score->incScore(5);
+    if (singleton->game_over) singleton->explode->advance();
+
+    //Game Not Paused
+    if (!singleton->pause->checkPauseClicked()) {
+        
+        //Leonidas Alive
+        if (singleton->leonidas->alive) {
+            singleton->count++;
+            if (singleton->count > 40) {
+                singleton->count = 0;
+            }
+            float x =  singleton->count / 50.0;
+            float y =  singleton->count / 60.0;
+            if ((int)singleton->count % 2 == 0) x = x * singleton->mult;
+            if ((int)singleton->count % 3 == 0) y = y * singleton->mult;
+            
+            
+            singleton->leonidas->move();
+            singleton->leonidas->collisionCheck();
+            if(singleton->leonidas->shouldGrow(singleton->rats, x, y)) {
+                singleton->score->incScore(5);
+            }
+            //Leonidas Dead
+        }else {
+            //singleton->leonidas->vanish();
+            Coord* head = singleton->leonidas->getHead();
+            singleton->explode->relocate(head->x, head->y);
+            singleton->game_over = true;
+            singleton->explode->animate();
         }
     }
-    if (!singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
-        singleton->leonidas->vanish();
-        Coord* head = singleton->leonidas->getHead();
-        singleton->explode->relocate(head->x, head->y);
-        singleton->game_over = true;
-        singleton->explode->animate();
-        
-    }
-    
     //Draws animation for Gameover calls itself at a rate of 100ms
     if (singleton->game_over) {
         singleton->redraw();
