@@ -35,6 +35,7 @@ public:
     void vanish();
     Coord* getHead();
     void draw();
+    int length();
     ~Snake();
 };
 

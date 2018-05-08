@@ -5,7 +5,9 @@ using namespace std;
 static App* singleton;
 
 void app_timer(int value){
-    if (singleton->game_over) singleton->explode->advance();
+    if (singleton->game_over && !singleton->explode->done()) {
+        singleton->explode->advance();
+    }
 
     //Game Not Paused
     if (!singleton->pause->checkPauseClicked()) {
@@ -27,13 +29,15 @@ void app_timer(int value){
             if(singleton->leonidas->shouldGrow(singleton->rats, x, y)) {
                 singleton->score->incScore(5);
             }
-            //Leonidas Dead
+        //Leonidas Dead
         }else {
-            //singleton->leonidas->vanish();
-            Coord* head = singleton->leonidas->getHead();
-            singleton->explode->relocate(head->x, head->y);
+            if (singleton->leonidas->length() == singleton->score->getScore()*2) {
+                Coord* head = singleton->leonidas->getHead();
+                singleton->explode->relocate(head->x, head->y);
+            }
             singleton->game_over = true;
             singleton->explode->animate();
+            singleton->leonidas->vanish();
         }
     }
     //Draws animation for Gameover calls itself at a rate of 100ms
@@ -107,7 +111,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     home.push_back(new Rect(-0.3, 0.55, 0.6, 0.25));
     home.push_back(new Rect(-0.3, -0.35, 0.6, 0.25));
     
-    gameOver = new AnimatedRect("explode.bmp", 5, 5, x, y, 0.5, 0.5);
+    
     
     game_over = false;
     score = new Score();
@@ -182,11 +186,11 @@ void App::draw() {
         score->draw();
         reset->draw();
         pause->draw();
-        explode->draw();
+        
         rats[0]->draw();
         rats[1]->draw();
         leonidas->draw();
-        gameOver->draw();
+        explode->draw();
         app_timer(1);
         
     }else if (game->gameMode == 2){     // High score screen
