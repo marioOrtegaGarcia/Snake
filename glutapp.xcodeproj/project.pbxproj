@@ -38,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		032A053920A1051800B1717A /* HighScores.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HighScores.h; sourceTree = "<group>"; };
+		032A053B20A1287200B1717A /* Explosion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Explosion.h; sourceTree = "<group>"; };
 		1708B53E2091E224007BA7C1 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = SOIL/lib/macOS/libSOIL.a; sourceTree = "<group>"; };
 		1708B5402091F634007BA7C1 /* AnimatedRect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedRect.cpp; sourceTree = "<group>"; };
 		1708B5412091F634007BA7C1 /* AnimatedRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedRect.h; sourceTree = "<group>"; };
@@ -86,13 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				A882FAA020A10A8400A948C0 /* gameInfo.cpp */,
-				A882FAA120A10A8400A948C0 /* gameInfo.h */,
 				1708B5402091F634007BA7C1 /* AnimatedRect.cpp */,
 				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				1799B7E61E5ECD67006D7CBD /* App.cpp */,
 				A882FA9120A018F900A948C0 /* Board.cpp */,
 				A882FA9A20A0E00F00A948C0 /* Mice.cpp */,
-				A882FA9B20A0E00F00A948C0 /* Mice.h */,
 				A882FA8820A0184C00A948C0 /* Coord.cpp */,
 				1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
 				A882FA8B20A0189F00A948C0 /* Snake.cpp */,
@@ -102,8 +101,11 @@
 				173FEF151AA63B1B006CCB85 /* OpenGL.framework */,
 				1708B5412091F634007BA7C1 /* AnimatedRect.h */,
 				1799B7E71E5ECD67006D7CBD /* App.h */,
+				032A053B20A1287200B1717A /* Explosion.h */,
 				A882FA9220A018F900A948C0 /* Board.h */,
 				A882FA8920A0184C00A948C0 /* Coord.h */,
+				A882FA9B20A0E00F00A948C0 /* Mice.h */,
+				A882FAA120A10A8400A948C0 /* gameInfo.h */,
 				1799B7E41E5E3A83006D7CBD /* GlutApp.h */,
 				A882FA8C20A0189F00A948C0 /* Snake.h */,
 				A882FA9E20A1051600A948C0 /* Button.h */,
