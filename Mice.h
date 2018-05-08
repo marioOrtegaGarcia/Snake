@@ -30,8 +30,8 @@ public:
 class taco : public Mice {
     TexRect* tacomouse;
     Coord* loc;
-    float w = 2.0/40;
-    float h = 1.83/40;
+    float w = 2.0/20;
+    float h = 1.83/20;
     bool up, down, left, right;
 public:
     taco(float x = 0, float y = 0);

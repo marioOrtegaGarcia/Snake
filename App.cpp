@@ -14,7 +14,7 @@ void app_timer(int value){
     if (!singleton->game->pauseB->gamePaused()) {
         
         //Move taco
-        singleton->game->tacos[0]->move(.005);
+        
         
         //Leonidas Alive
         if (singleton->game->leonidas->alive) {
@@ -27,6 +27,7 @@ void app_timer(int value){
             if ((int)singleton->game->count % 2 == 0) x = x * singleton->game->mult;
             if ((int)singleton->game->count % 3 == 0) y = y * singleton->game->mult;
             
+            singleton->game->tacos[0]->move(.01);
             singleton->game->leonidas->move();
             singleton->game->leonidas->collisionCheck();
             if(singleton->game->leonidas->shouldGrow(singleton->game->rats, x, y)) {
@@ -103,6 +104,8 @@ void App::mouseDown(float x, float y){
     // Update app state
     mx = x;
     my = y;
+    
+    game->passMouseCoords(mx, my);
     
     // Redraw the scene
     redraw();

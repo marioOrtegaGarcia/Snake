@@ -51,7 +51,7 @@ void TexRect::moveLeft(float rate){
 }
 void TexRect::moveRight(float rate){
     x += rate;
-    if (x + w > 0.99){
+    if (x > 0.99){
         x = -0.99;
     }
 }
