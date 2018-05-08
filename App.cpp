@@ -9,6 +9,12 @@ void app_timer(int value){
     if (singleton->count > 40) {
         singleton->count = 0;
     }
+    
+    if(singleton->game_over == true){
+        singleton->gameOver->animate();
+        singleton->gameOver->advance();
+    
+    }
     float x =  singleton->count / 50.0;
     float y =  singleton->count / 60.0;
     if ((int)singleton->count % 2 == 0) x = x * singleton->mult;
@@ -99,6 +105,8 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     home.push_back(new Rect(-0.3, 0.55, 0.6, 0.25));
     home.push_back(new Rect(-0.3, -0.35, 0.6, 0.25));
     
+    gameOver = new AnimatedRect("explode.bmp", 5, 5, x, y, 0.5, 0.5);
+    
     game_over = false;
     score = new Score();
     //board = new Board();
@@ -173,6 +181,7 @@ void App::draw() {
         //board->draw();
         rats[0]->draw();
         leonidas->draw();
+        gameOver->draw();
         app_timer(1);
         
     }else if (game->gameMode == 2){     // High score screen

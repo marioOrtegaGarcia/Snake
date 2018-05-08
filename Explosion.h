@@ -15,20 +15,21 @@
 
 using namespace std;
 
+static App* singleton;
+
 class ExplosionBruh {
     
 public:
     
     void explode(int x){
         
-        if(!doubleton->current->explosion->done()){
-            doubleton->current->explosion->advance();
-            doubleton->redraw();
-            glutTimerFunc(32, explode, x);
+        if(singleton->game_over == true){
+           singleton->gameOver->animate();
         }
     }
     
-    explosion = new MoveImg("explode.bmp", 5, 5, x, y, 0.5, 0.5);
+           };
+    
+    
 
-};
 #endif /* Explosion_h */

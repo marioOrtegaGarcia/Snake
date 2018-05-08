@@ -42,6 +42,7 @@ public:
     pauseButton* pause;
     HighScores* highScores;
     gameInfo *game;
+    AnimatedRect* gameOver;
     vector<Mice*> rats;
     vector<Rect*> home;
 };
