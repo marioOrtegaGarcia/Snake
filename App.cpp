@@ -8,6 +8,11 @@ void app_timer(int value){
     if (singleton->game_over && !singleton->explode->done()) {
         singleton->explode->advance();
     }
+    /*
+    if (singleton->explode->done()) {
+        singleton->highScores->
+    }
+     */
 
     //Game Not Paused
     if (!singleton->pause->checkPauseClicked()) {
@@ -31,7 +36,8 @@ void app_timer(int value){
             }
         //Leonidas Dead
         }else {
-            if (singleton->leonidas->length() == singleton->score->getScore()*2) {
+            if (singleton->leonidas->length() >= (singleton->score->getScore()*2)-1) {
+                cout << "Relocated Explosion" << endl;
                 Coord* head = singleton->leonidas->getHead();
                 singleton->explode->relocate(head->x, head->y);
             }
