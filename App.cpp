@@ -8,7 +8,7 @@ void app_timer(int value){
     if (singleton->leonidas->alive && !singleton->pause->checkPauseClicked()) {
         singleton->leonidas->move();
         singleton->leonidas->collisionCheck();
-        singleton->leonidas->shouldGrow(singleton->rats);
+        if(singleton->leonidas->shouldGrow(singleton->rats)) singleton->score->incScore(5);
     }
     
     //Draws animation for Gameover calls itself at a rate of 100ms
@@ -145,9 +145,9 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     score = new Score();
     board = new Board();
     
+    menu = new TexRect("images/menu.png", -1, 1, 2, 2);
     //board->placeMice();
     
-    menu = new TexRect("images/menu.png", -1, 1, 2, 2);
     background = new TexRect("images/grass.jpeg", -1, .83, 2, 2);
     reset = new resetButton("images/reset.png", -1, 1, .167, .167);
     pause = new pauseButton("images/pause.png", .83, 1, .167, .167);
@@ -319,6 +319,6 @@ void App::keyPress(unsigned char key) {
     
     if (key == ' '){
         //singleton->leonidas->shouldGrow();
-        score->incScore(5);
+        //score->incScore(5);
     }
 }
