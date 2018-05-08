@@ -91,11 +91,11 @@ void Snake::collisionCheck() {
     a = 0;
 }
 void Snake::draw() {
-    list<Coord*>::iterator itr;
+    list<Coord*>::reverse_iterator itr;
     bool alternateColor = true;
     
-    for (itr = snake.begin(); itr != snake.end(); ++itr) {
-        if (itr == snake.begin()) glColor3d(0.0, 1.0, 0.0);
+    for (itr = snake.rbegin(); itr != snake.rend(); ++itr) {
+        if (itr == snake.rbegin()) glColor3d(1.0, 0.0, 0.0);
         else if (alternateColor) {
             glColor3d(1.0, 1.0, 1.0);
             alternateColor = false;

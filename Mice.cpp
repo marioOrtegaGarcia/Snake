@@ -25,7 +25,7 @@ void Mice::draw() {
 }
 bool Mice::contains(float mx, float my) {
     if (mx >= loc->x && mx <= loc->x+w && my <= loc->y && my >= loc->y - h) {
-        std::cout << "~~~~~";
+        
         kill();
         return true;
     }
