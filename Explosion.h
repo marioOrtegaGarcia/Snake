@@ -27,6 +27,8 @@ public:
             glutTimerFunc(32, explode, x);
         }
     }
+    
+    explosion = new MoveImg("explode.bmp", 5, 5, x, y, 0.5, 0.5);
 
 };
 #endif /* Explosion_h */
