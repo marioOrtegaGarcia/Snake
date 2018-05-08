@@ -49,66 +49,7 @@ void app_timer(int value){
 
 
 
-struct Rect{
-    float x, y, width, height;
-    bool pressed = false;
-    
-    Rect(float a, float b, float c, float d){
-        x = a;
-        y = b;
-        width = c;
-        height = d;
-    }
-    
-    float getX(){
-        return x;
-    }
-    
-    float getY(){
-        return y;
-    }
-    
-    float getWidth(){
-        return width;
-    }
-    
-    float getHeight(){
-        return height;
-    }
-    
-    void setX(float input){
-        x = input;
-    }
-    
-    void setY(float input){
-        y = input;
-    }
-    
-    void setWidth(float input){
-        width = input;
-    }
-    
-    void setHeight(float input){
-        height = input;
-    }
-    
-    void click(){
-        if (!pressed) pressed = true;
-        else pressed = false;
-    }
-    
-    void unClick() {
-        pressed = false;
-    }
-    
-    bool contains(float inputX, float inputY){
-        return ((inputX > x && inputX < (x + width)) && (inputY < y && inputY > (y - height)));
-    }
-    
-    ~Rect(){
-        
-    }
-};
+
 
 void writeText(const char *text, int x, int y, int length){
     glMatrixMode(GL_PROJECTION);
@@ -150,7 +91,7 @@ void writeText2(const char *text2, int x, int y, int length){
     glMatrixMode(GL_MODELVIEW);
 }
 
-vector<Rect*> home;
+
 
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
@@ -336,11 +277,21 @@ void App::keyPress(unsigned char key) {
     if (key == 27){
         // Exit the app when Esc key is pressed
         delete score;
-        //delete board;
         delete leonidas;
+        delete menu;
         delete background;
         delete reset;
         delete pause;
+        delete highScores;
+        delete game;
+        while (rats.size() >= 1) {
+            delete rats.back();
+            rats.pop_back();
+        }
+        while (home.size() >= 1) {
+            delete home.back();
+            home.pop_back();
+        }
         delete this;
         exit(0);
     }

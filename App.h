@@ -8,6 +8,7 @@
 #include "Button.h"
 #include "HighScores.h"
 #include "gameInfo.h"
+#include "Rect.h"
 #include <vector>
 
 class App: public GlutApp {
@@ -43,6 +44,7 @@ public:
     gameInfo *game;
     AnimatedRect* gameOver;
     vector<Mice*> rats;
+    vector<Rect*> home;
 };
 
 #endif
