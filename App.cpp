@@ -146,6 +146,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     board = new Board();
     board->placeMice();
     
+    menu = new TexRect("images/menu.png", -1, 1, 2, 2);
     background = new TexRect("images/grass.jpeg", -1, .83, 2, 2);
     reset = new resetButton("images/reset.png", -1, 1, .167, .167);
     pause = new pauseButton("images/pause.png", .83, 1, .167, .167);
@@ -179,6 +180,7 @@ void App::draw() {
     
     if (game->gameMode == 0){           // Home Screen
         // Draw the two home buttons
+        menu->draw();
         glColor3f(1.0, 0.0, 0.0);
         for (int i = 0; i < home.size(); i++){
             glBegin(GL_POLYGON);
@@ -311,7 +313,7 @@ void App::keyPress(unsigned char key) {
     }
     
     if (key == ' '){
-        singleton->leonidas->shouldGrow();
+        //singleton->leonidas->shouldGrow();
         score->incScore(5);
     }
 }

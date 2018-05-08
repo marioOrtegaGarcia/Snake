@@ -32,6 +32,7 @@ public:
     Score* score;
     Board* board;
     Snake* leonidas;
+    TexRect* menu;
     TexRect* background;
     resetButton* reset;
     pauseButton* pause;
