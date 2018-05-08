@@ -114,7 +114,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     //board->placeMice();
     
     background = new TexRect("images/grass.jpeg", -1, .83, 2, 2);
-    explode = new AnimatedRect("images/explode.bmp", 5, 5, 0, 0 , 0.5 , 0.5);
+    explode = new AnimatedRect("images/explosion.png", 9, 9, 0, 0 , 0.5 , 0.5);
     reset = new resetButton("images/reset.png", -1, 1, .167, .167);
     pause = new pauseButton("images/pause.png", .83, 1, .167, .167);
     leonidas = new Snake();
