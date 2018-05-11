@@ -160,12 +160,12 @@ void gameState::endGame(){
 void gameState::resetGame() {
     resetB->resetClicked = true;
     gameOver = true;
+    highScores->insertQueue(score->getScore());
     leonidas->alive = false;
     leonidas->~Snake();
     rats.clear();
     tacos.clear();
     explode->reset();
-    highScores->insertQueue(score->getScore());
 
     leonidas = new Snake();
     rats.push_back(new Mice(0,0.28));

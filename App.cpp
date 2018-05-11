@@ -124,7 +124,6 @@ void App::keyPress(unsigned char key) {
         exit(0);
     }
     if (key == '/') game->pauseB->changePause();
-    if (key == ' ') game->gameMode == 1;
 }
 
 /*
