@@ -45,15 +45,18 @@ void app_timer(int value){
         }
     }
     //Draws animation for Gameover calls itself at a rate of 100ms
-    if (singleton->game->gameOver) {
+    if (singleton->game->gameOver && singleton->game->gameMode == 1) {
         singleton->redraw();
         glutTimerFunc(200, app_timer, value);
     } else {
         //Calls itself while game isnt over at a rate of 16 ms
-        if (true){
+        if (singleton->game->getGameMode() == 1){
             singleton->redraw();
             glutTimerFunc(100, app_timer, value);
         }
+    }
+    if (singleton->game->isGameOver() && singleton->game->explode->done()) {
+        singleton->game->resetGame();
     }
 }
 
@@ -120,10 +123,8 @@ void App::keyPress(unsigned char key) {
         delete this;
         exit(0);
     }
-    
     if (key == '/') game->pauseB->changePause();
-    if (key == ' ') mouseDown(-0.99, 0.99);
-    
+    if (key == ' ') game->gameMode == 1;
 }
 
 /*

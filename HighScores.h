@@ -21,35 +21,26 @@
 using namespace std;
 
 struct compare {
-    
     bool operator()(const int& l, const int& r){
-        
-        return l < r;
+        return l > r;
     }
 };
+
 class HighScores {
-    
-public:
-    
     priority_queue<int, vector<int>, compare> topScores;
-    
+public:
     HighScores(){
         for(int newScore : {0,0,0,0,0})
             topScores.push(newScore);
     }
-    
     void insertQueue(int newScore){
-        
         int lowestScore = topScores.top();
         //cout << lowestScore << endl;
         if(lowestScore < newScore)
         {
+            topScores.pop();
             topScores.push(newScore);
         }
-        else {
-            topScores.push(lowestScore);
-        }
-        
     }
     
     void S1(const char *place1, int x, int y, int length){
@@ -71,7 +62,7 @@ public:
         glLoadMatrixd(matrix);
         glMatrixMode(GL_MODELVIEW);
     }
-    
+    /*
     void S2(const char *place2, int x, int y, int length){
         glMatrixMode(GL_PROJECTION);
         double *matrix = new double[16];
@@ -151,37 +142,37 @@ public:
         glLoadMatrixd(matrix);
         glMatrixMode(GL_MODELVIEW);
     }
-    
+    */
     void drawScores(){
         int val;
         
         string place5 = "Fifth Place:";
         val = topScores.top();
-        place5 += to_string(val);
         topScores.pop();
+        place5 += to_string(val);
         glColor3f(1.0, 1.0, 1.0);
-        S5(place5.data(), 255, 170, 15);
+        S1(place5.data(), 255, 170, 15);
         
         string place4 = "Fourth Place:";
         val = topScores.top();
         place4 += to_string(val);
         topScores.pop();
         glColor3f(1.0, 1.0, 1.0);
-        S4(place4.data(), 255, 230, 15);
+        S1(place4.data(), 255, 230, 15);
         
         string place3 = "Third Place:";
         val = topScores.top();
         place3 += to_string(val);
         topScores.pop();
         glColor3f(1.0, 1.0, 1.0);
-        S3(place3.data(), 255, 290, 15);
+        S1(place3.data(), 255, 290, 15);
         
         string place2 = "Second Place:";
         val = topScores.top();
         place2 += to_string(val);
         topScores.pop();
         glColor3f(1.0, 1.0, 1.0);
-        S2(place2.data(), 255, 350, 15);
+        S1(place2.data(), 255, 350, 15);
         
         string place1 = "First Place:";
         val = topScores.top();

@@ -60,10 +60,10 @@ void Snake::move(float step) {
     if (left) head->moveLeft(step);
     if (right) head->moveRight(step);
     snake.push_front(head);
-    if (grow == 0)
-        snake.pop_back();
-    else
-        grow--;
+    if (grow == 0) snake.pop_back();
+    else grow--;
+    
+    
 }
 
 //Increases snake length once it eats
@@ -116,6 +116,7 @@ void Snake::collisionCheck() {
     }
     a = 0;
 }
+
 void Snake::vanish() {
     if (!alive && snake.size()>=1) {
         if (snake.size() > 5) {

@@ -162,14 +162,16 @@ void gameState::resetGame() {
     gameOver = true;
     leonidas->alive = false;
     leonidas->~Snake();
-    leonidas = new Snake();
     rats.clear();
-    rats.push_back(new Mice(0,0.28));
     tacos.clear();
-    tacos.push_back(new taco(0,0.28));
-    highScores->insertQueue(score->getScore());
-    score->reset();
     explode->reset();
+    highScores->insertQueue(score->getScore());
+
+    leonidas = new Snake();
+    rats.push_back(new Mice(0,0.28));
+    tacos.push_back(new taco(0,0.28));
+
+    score->reset();
     gameMode = 0;
     gameOver = false;
 }
